@@ -3,7 +3,7 @@ import './Navbar.css'
 import { Link } from 'react-router-dom'
 function Navbar() {
   return (
-    <div className='container'>
+    <div className='container-fluid'>
       <div className="navbar-header">
         <div className="logo">
            <h4>Logo</h4>
