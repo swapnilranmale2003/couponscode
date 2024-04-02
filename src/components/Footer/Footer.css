@@ -1,0 +1,40 @@
+footer{
+    background-color: #1B1A17;
+    height: 100%;
+    color: #F0A500;
+    margin-bottom: 1rem;
+    padding: 1rem 0;
+}
+
+.footerlist>ul{
+    display: flex;
+    flex-direction: column;
+   
+}
+.footer-heading{
+    display: flex;
+    margin-left: 2rem;
+    font-size: 1.2rem;
+}
+.orange{
+    color: #9b7c0f;
+}
+.footer-content{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 5px;
+}
+.footer-content>h4{
+    font-size: 1.2rem;
+    width: 80%;
+    margin: 0 auto;
+}
+
+
+.footer-content>p{
+    color: #9b7c0f;
+    font-size: 12px;
+    width: 80%;
+    margin: 0 auto;
+}
