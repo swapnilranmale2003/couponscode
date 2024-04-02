@@ -1,0 +1,29 @@
+.navbar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* Center align items vertically */
+    height: 71px;
+    background-color: #1B1A17;
+    color: #F0A500;
+}
+
+.navbar-header ul {
+    display: flex;
+    gap: 12px;
+
+}
+
+.linkStyle {
+    text-decoration: none;
+    color: #F0A500;
+    height: 30px;
+    width: 90px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    border-radius: 20px;
+    background-color: #503E00;
+    font-size: 12px;
+
+}
