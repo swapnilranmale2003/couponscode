@@ -1,0 +1,29 @@
+.coupon{
+    width:80%;
+    margin: 0 auto;
+    height: 180px;
+    background-color: #F0A500;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+   margin-top: 3rem;
+}
+.coupon-btn{
+    display: flex;
+    justify-content: space-around;
+}
+
+.coupon-btn button{
+    width: 100px;
+}
+.title{
+    width: 90%;
+    display: flex;
+  margin: 0 auto;
+}
+.description{
+    width: 80%;
+    display: flex;
+  margin: 0 auto;
+}
