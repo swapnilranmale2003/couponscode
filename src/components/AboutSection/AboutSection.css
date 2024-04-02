@@ -1,6 +1,6 @@
 .about-left {
-    height: 432px;
-    width: 70%;
+    height: 100%;
+    width: 100%;
     background-color: #F0A500;
     color: #000;
     border-radius: 20px;
@@ -11,15 +11,18 @@
     justify-content: space-around;
    
 }
+.about-left>li{
+    font-size: 1.2rem;
+}
 
 .box1 {
     width: 100%;
     background-color: #1B1A17;
     color: #F0A500;
     margin-bottom: 2rem;
-    height: 200px;
+    height:100%;
     border-radius: 12px;
-    
+   
 }
 .box1>h1{
     font-size: 1.2rem;

@@ -24,33 +24,27 @@ function AboutSection() {
             </div>
           </div>
           <div className="col-md-6">
-            <div className="row">
-              <div className="col-md-12">
-                <div className="box1">
-                  <h1>We have 4 members in our group</h1>
-                 <div className="box1-list">
-                    <ol type="1">
+            <div className="about-right">
+              <div className="box1">
+                <div className="box1">We have 4 members in our group</div>
+                <div className="box-list">
+                  <ol type="1">
                     <li>Avanti Bhamare</li>
                     <li>Yogesh Bhavsar</li>
                     <li>Swapnil Ranmale</li>
                     <li>Rahul Raundal</li>
-                    </ol>
-                 </div>
-
+                  </ol>
                 </div>
               </div>
-            </div>
-            <div className="row">
-              <div className="col-md-12">
-                <div className="box1">
-                  <h1>We used the tech stack </h1>
-                  <div className="box1-list">
-                    <ol type="1">
-                    <li>UI : React Js</li>
-                    <li>Database : Firebase</li>
-                    
-                    </ol>
-                 </div>
+              <div className="box1">
+                <div className="box1">We have 4 members in our group</div>
+                <div className="box-list">
+                  <ol type="1">
+                    <li>Avanti Bhamare</li>
+                    <li>Yogesh Bhavsar</li>
+                    <li>Swapnil Ranmale</li>
+                    <li>Rahul Raundal</li>
+                  </ol>
                 </div>
               </div>
             </div>
