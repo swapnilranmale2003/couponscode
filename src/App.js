@@ -1,11 +1,34 @@
-import logo from './logo.svg';
+import { Route, Routes } from 'react-router-dom';
 import './App.css';
-import Navbar from './components/Navbar';
+import Homepage from './Pages/Homepage';
+import Login from './components/Login/Login';
+import Signup from './components/Signup/Signup';
+import { useEffect, useState } from 'react';
+import { auth } from './firebase';
+import FrontPage from './Pages/FrontPage';
 
 function App() {
+  const [userName, setUsername] = useState();
+  useEffect(() => {
+    auth.onAuthStateChanged((user) => {
+      if (user) {
+        setUsername(user.displayName)
+      }
+      else {
+        setUsername("")
+      }
+      console.log(user)
+    })
+  }, [])
   return (
     <div className="App">
-     <Navbar />
+      <Routes>
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/" element={<Homepage />} name={userName} />
+        <Route path="/frontpage" element={<FrontPage />} />
+
+      </Routes>
     </div>
   );
 }
