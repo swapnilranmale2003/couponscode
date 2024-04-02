@@ -1,0 +1,27 @@
+.about-left {
+    height: 432px;
+    width: 70%;
+    background-color: #F0A500;
+    color: #000;
+    border-radius: 20px;
+    padding: 1rem;
+    /* margin: 1rem; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+   
+}
+
+.box1 {
+    width: 100%;
+    background-color: #1B1A17;
+    color: #F0A500;
+    margin-bottom: 2rem;
+    height: 200px;
+    border-radius: 12px;
+    
+}
+.box1>h1{
+    font-size: 1.2rem;
+    padding: 1rem 2rem;
+}

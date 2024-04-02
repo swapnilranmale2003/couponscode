@@ -1,5 +1,5 @@
 import './App.css';
-import Upload from './components/Upload coupon/Upload';
+// import Upload from './components/Upload coupon/Upload';
 
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
@@ -26,7 +26,7 @@ function App() {
   }, [])
   return (
     <div className="App">
-      <Upload/>
+      {/* <Upload/> */}
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />

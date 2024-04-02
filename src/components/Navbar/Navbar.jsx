@@ -10,7 +10,7 @@ function Navbar() {
         </div>
         <div className="nav-menu">
             <ul>
-                <Link className='linkStyle' to={"/"}>Home</Link>
+                <Link className='linkStyle' to={"/frontpage"}>Home</Link>
                 <Link className='linkStyle' to={"/about"}>About Us</Link>
                 <Link className='linkStyle' to={"/contact"}>Contact Us</Link>
                 <Link className='linkStyle' to={"/"}>Login/SignUp</Link>
