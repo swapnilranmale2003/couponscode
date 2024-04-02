@@ -1,7 +1,12 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 function Upload() {
-    
+
+    const [title, setTitle] = useState('');
+    const [link, setLink] = useState('');
+    const [code, setCode] = useState('');
+    const [description, setDescription] = useState('');
+
   return (
     <div>
       <input type="text" name="Title" placeholder='Enter the Title' id="" />
