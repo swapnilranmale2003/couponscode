@@ -6,6 +6,7 @@ import Signup from './components/Signup/Signup';
 import { useEffect, useState } from 'react';
 import { auth } from './firebase';
 import FrontPage from './Pages/FrontPage';
+import About from './Pages/About';
 
 function App() {
   const [userName, setUsername] = useState();
@@ -27,6 +28,7 @@ function App() {
         <Route path="/signup" element={<Signup />} />
         <Route path="/" element={<Homepage />} name={userName} />
         <Route path="/frontpage" element={<FrontPage />} />
+        <Route path='/about' element={<About />} />
 
       </Routes>
     </div>
