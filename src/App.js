@@ -11,6 +11,7 @@ import { auth } from './firebase';
 import FrontPage from './Pages/FrontPage';
 import About from './Pages/About';
 import Contact from './Pages/Contact';
+import Upload from './components/uploadCoupon/Upload';
 
 function App() {
   const [userName, setUsername] = useState();
@@ -33,7 +34,7 @@ function App() {
         <Route path="/" element={<Homepage />} name={userName} />
         <Route path="/frontpage" element={<FrontPage />} />
 
-        {/* <Route path="/upload" element={<Upload />} /> */}
+        <Route path="/upload" element={<Upload />} />
 
         <Route path='/about' element={<About />} />
 
