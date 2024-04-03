@@ -9,7 +9,11 @@ import Signup from './components/Signup/Signup';
 import FrontPage from './Pages/FrontPage';
 import About from './Pages/About';
 import Contact from './Pages/Contact';
+// <<<<<<< HEAD
 import Upload from './components/uploadCoupon/Upload.js';
+
+
+// >>>>>>> 69e1d9bc05e4f3f270c6192619653b38072a3517
 
 function App() {
   const [userName, setUsername] = useState();

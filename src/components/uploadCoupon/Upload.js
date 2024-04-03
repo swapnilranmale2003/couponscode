@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import 'firebase/firestore';
-import firebase from 'firebase/compat/app'
+import firebase from 'firebase/compat/app';
+
 const Upload = () => {
   const [formData, setFormData] = useState({
     title: '',
