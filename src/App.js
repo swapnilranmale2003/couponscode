@@ -27,14 +27,20 @@ function App() {
   }, [])
   return (
     <div className="App">
-      {/* <Upload/> */}
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/" element={<Homepage />} name={userName} />
         <Route path="/frontpage" element={<FrontPage />} />
+
+        <Route path="/upload" element={<Upload />} />
+
         <Route path='/about' element={<About />} />
+
         <Route path='/contact' element={<Contact />} />
+
+
+
       </Routes>
     </div>
   );
