@@ -1,0 +1,26 @@
+.upload-coupons{
+    height: 400px;
+    width: 400px;
+    background-color: #E45826;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 12px;
+    align-items: center;
+    justify-content: space-between;
+}
+.inputs{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 80%;
+    padding: 12px 0;
+    
+}
+.upload-coupons .inputs>input{
+    background-color: #1B1A17;
+    border: none;
+    height: 50px;
+    
+}
