@@ -37,7 +37,7 @@ const Upload = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form method='POST' onSubmit={handleSubmit}>
       <input
         type="text"
         name="title"
