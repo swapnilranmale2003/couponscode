@@ -1,5 +1,5 @@
 import './App.css';
-// import Upload from './components/Upload coupon/Upload';
+import Upload from './components/Upload coupon/Upload';
 
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
