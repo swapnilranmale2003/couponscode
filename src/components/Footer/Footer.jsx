@@ -8,14 +8,12 @@ function Footer() {
         <footer>
           <div className="row">
             <div className="col-md-6">
-                <div className="footer-content">
-
-                
-              <h4>Coupons Code Exchange Plateform</h4>
-              <p>
-                Unused coupon codes often expire or are lost, leading to wasted
-                savings opportunities for consumers and businesses.
-              </p>
+              <div className="footer-content">
+                <h4>Coupons Code Exchange Plateform</h4>
+                <p>
+                  Unused coupon codes often expire or are lost, leading to
+                  wasted savings opportunities for consumers and businesses.
+                </p>
               </div>
             </div>
             <div className="col-md-3">

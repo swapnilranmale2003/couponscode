@@ -3,9 +3,11 @@ import "./AboutSection.css";
 function AboutSection() {
   return (
     <div>
+      
       <div className="container">
         <div className="row my-3">
           <div className="col-md-6">
+           
             <div className="about-left">
               <li>
                 This is the platform that provides a service to the users were

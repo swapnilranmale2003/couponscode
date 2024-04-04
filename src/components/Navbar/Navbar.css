@@ -2,29 +2,22 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    /* Center align items vertically */
     height: 71px;
-    background-color: #1B1A17;
-    color: #F0A500;
-    
+    color: #05386b;
 }
 
-.navbar-header ul {
-    display: flex;
-    gap: 12px;
-
+.linkStyle:hover{
+    font-weight: normal;
+    text-decoration: none;
+    color: #05386b;
 }
 
 .linkStyle {
     text-decoration: none;
-    color: #F0A500;
+    color: #05386b;
     height: 30px;
     width: 90px;
-    align-items: center;
-    justify-content: center;
-    display: flex;
-    border-radius: 20px;
-    background-color: #503E00;
-    font-size: 12px;
-
+    font-size: 1.3rem;
+    font-weight: 600;
+    padding: 0 12px;
 }

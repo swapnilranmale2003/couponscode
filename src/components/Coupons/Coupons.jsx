@@ -14,8 +14,8 @@ function Coupons() {
                 This is the coupon of course on Udemy
               </div>
               <div className="coupon-btn">
-                <button className="btn btn-dark">Link</button>
-                <button className="btn btn-dark">Redeem</button>
+                <button >Link</button>
+                <button >Redeem</button>
               </div>
             </div>
           </div>
@@ -28,8 +28,8 @@ function Coupons() {
                 This is the coupon of course on Udemy
               </div>
               <div className="coupon-btn">
-                <button className="btn btn-dark">Link</button>
-                <button className="btn btn-dark">Redeem</button>
+                <button >Link</button>
+                <button >Redeem</button>
               </div>
             </div>
           </div>
@@ -42,8 +42,8 @@ function Coupons() {
                 This is the coupon of course on Udemy
               </div>
               <div className="coupon-btn">
-                <button className="btn btn-dark">Link</button>
-                <button className="btn btn-dark">Redeem</button>
+                <button >Link</button>
+                <button >Redeem</button>
               </div>
             </div>
           </div>
@@ -58,8 +58,8 @@ function Coupons() {
                 This is the coupon of course on Udemy
               </div>
               <div className="coupon-btn">
-                <button className="btn btn-dark">Link</button>
-                <button className="btn btn-dark">Redeem</button>
+                <button >Link</button>
+                <button >Redeem</button>
               </div>
             </div>
           </div>
@@ -72,8 +72,8 @@ function Coupons() {
                 This is the coupon of course on Udemy
               </div>
               <div className="coupon-btn">
-                <button className="btn btn-dark">Link</button>
-                <button className="btn btn-dark">Redeem</button>
+                <button >Link</button>
+                <button >Redeem</button>
               </div>
             </div>
           </div>
@@ -86,8 +86,8 @@ function Coupons() {
                 This is the coupon of course on Udemy
               </div>
               <div className="coupon-btn">
-                <button className="btn btn-dark">Link</button>
-                <button className="btn btn-dark">Redeem</button>
+                <button >Link</button>
+                <button >Redeem</button>
               </div>
             </div>
           </div>
