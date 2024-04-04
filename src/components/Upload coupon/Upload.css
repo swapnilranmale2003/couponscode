@@ -55,3 +55,14 @@
     font-weight: 600;
     font-size: 3rem;
 }
+
+.getcoupons{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.getcoupons>button{
+    width: 500px;
+    font-size: 2rem;
+    height: 55px;
+}
