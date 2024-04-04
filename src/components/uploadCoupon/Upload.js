@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
-import 'firebase/firestore';
-import firebase from 'firebase/compat/app'
+import {} from 'firebase/firestore';
+import firebase from 'firebase/compat/app';
+
 const Upload = () => {
   const [formData, setFormData] = useState({
     title: '',
@@ -20,7 +21,7 @@ const Upload = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const db = firebase.firestore();
+      const db = firebase;
       await db.collection('coupons').add(formData);
       // Reset form data after submission
       setFormData({
@@ -37,7 +38,7 @@ const Upload = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form method='POST' onSubmit={handleSubmit}>
       <input
         type="text"
         name="title"

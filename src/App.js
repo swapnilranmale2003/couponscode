@@ -1,17 +1,19 @@
 import './App.css';
-import Upload from './components/Upload coupon/Upload';
-
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
+import { auth } from './firebase';
+import { useEffect, useState } from 'react';
 import Homepage from './Pages/Homepage';
 import Login from './components/Login/Login';
 import Signup from './components/Signup/Signup';
-import { useEffect, useState } from 'react';
-import { auth } from './firebase';
 import FrontPage from './Pages/FrontPage';
 import About from './Pages/About';
 import Contact from './Pages/Contact';
+// <<<<<<< HEAD
+import Upload from './components/uploadCoupon/Upload.js';
 
+
+// >>>>>>> 69e1d9bc05e4f3f270c6192619653b38072a3517
 
 function App() {
   const [userName, setUsername] = useState();
