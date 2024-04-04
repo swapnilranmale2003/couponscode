@@ -1,100 +1,46 @@
-import React from "react";
-import "./Coupons.css";
+import React, { useEffect, useState } from 'react';
+import './Coupons.css';
+
 function Coupons() {
-  return (
-    <div>
-      <div className="container">
-        <div className="row">
-          <div className="col-md-4">
-            <div className="coupon">
-              <div className="title">
-                <h3>Name</h3>
-              </div>
-              <div className="description">
-                This is the coupon of course on Udemy
-              </div>
-              <div className="coupon-btn">
-                <button >Link</button>
-                <button >Redeem</button>
-              </div>
-            </div>
-          </div>
-          <div className="col-md-4">
-          <div className="coupon">
-              <div className="title">
-                <h3>Name</h3>
-              </div>
-              <div className="description">
-                This is the coupon of course on Udemy
-              </div>
-              <div className="coupon-btn">
-                <button >Link</button>
-                <button >Redeem</button>
-              </div>
-            </div>
-          </div>
-          <div className="col-md-4">
-          <div className="coupon">
-              <div className="title">
-                <h3>Name</h3>
-              </div>
-              <div className="description">
-                This is the coupon of course on Udemy
-              </div>
-              <div className="coupon-btn">
-                <button >Link</button>
-                <button >Redeem</button>
-              </div>
-            </div>
-          </div>
+    const [coupons, setCoupons] = useState([]);
+
+    useEffect(() => {
+        fetch('https://uploadcoupons-6b1e4-default-rtdb.firebaseio.com/UploadCoupon.json')
+            .then(response => response.json())
+            .then(data => {
+                const fetchedCoupons = [];
+                for (const key in data) {
+                    fetchedCoupons.push({
+                        id: key,
+                        title: data[key].Name,
+                        link: data[key].link,
+                        couponcode: data[key].redem,
+                        description: data[key].Description
+                    });
+                }
+                setCoupons(fetchedCoupons);
+            })
+            .catch(err => console.log(err));
+    }, []);
+
+    return (
+        <div className="coupons-container">
+            {coupons.map((coupon, index) => (
+                <div className="coupon-card" key={index}>
+                    <div className="title">
+                        <h3>{coupon.title}</h3>
+                    </div>
+                    <div className="description">
+                        <p>{coupon.description}</p>
+                    </div>
+                    <div className="coupon-buttons">
+                        {coupon.link && <a href={coupon.link} target="_blank" rel="noopener noreferrer" className="link-button">Link</a>}
+                        <button className="redeem-button">{coupon.couponcode}</button>
+                    </div>
+                </div>
+            ))}
         </div>
-        <div className="row">
-          <div className="col-md-4">
-            <div className="coupon">
-              <div className="title">
-                <h3>Name</h3>
-              </div>
-              <div className="description">
-                This is the coupon of course on Udemy
-              </div>
-              <div className="coupon-btn">
-                <button >Link</button>
-                <button >Redeem</button>
-              </div>
-            </div>
-          </div>
-          <div className="col-md-4">
-          <div className="coupon">
-              <div className="title">
-                <h3>Name</h3>
-              </div>
-              <div className="description">
-                This is the coupon of course on Udemy
-              </div>
-              <div className="coupon-btn">
-                <button >Link</button>
-                <button >Redeem</button>
-              </div>
-            </div>
-          </div>
-          <div className="col-md-4">
-          <div className="coupon">
-              <div className="title">
-                <h3>Name</h3>
-              </div>
-              <div className="description">
-                This is the coupon of course on Udemy
-              </div>
-              <div className="coupon-btn">
-                <button >Link</button>
-                <button >Redeem</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
+    );
 }
 
 export default Coupons;
