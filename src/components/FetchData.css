@@ -1,0 +1,77 @@
+.cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 22px;
+}
+.card-section{
+    height: 100vh;
+}
+.card {
+    background-color: #05386b;
+    height: 250px;
+    border-radius: 8px;
+    width: 300px;
+    position: relative; /* Ensure relative positioning for the parent */
+    color: #FFF;
+}
+
+.card-header {
+    padding: 10px;
+    border-bottom: 1px solid #cccccc;
+}
+
+.card-body {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.card-body p {
+    margin: 0;
+}
+
+.card-body a {
+    color: #05386b;
+    text-align: center; /* Center align the link */
+}
+
+.buttons-container {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    right: 10px;
+    display: flex;
+    justify-content: space-between; /* Center align buttons horizontally */
+}
+
+.link-button, .redeem-button {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.link-button {
+    background-color: #EDF5E1;
+    color: #05386b;
+}
+
+.redeem-button {
+    background-color: #EDF5E1;
+    color: #05386b;
+}
+
+button {
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Center align content vertically */
+    color: #05386b;
+    width: 120px;
+    background-color: #EDF5E1;
+    border: none;
+    border-radius: 5px;
+    height: 3rem;
+    font-size: 1.2rem;
+    font-weight: 500;
+}
