@@ -37,6 +37,7 @@ function ContactForm() {
   return (
     <>
     <div className="contact-section">
+    <h1 className="text-center color">Contact Us</h1>
     <div className="container contact-form my-3 ">
       <div className="contact-details">
         <form onSubmit={handleSubmit}>

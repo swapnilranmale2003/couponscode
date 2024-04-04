@@ -13,9 +13,12 @@ function FrontPage() {
   return (
     <div>
       <Navbar />
+      
       <div className="d-flex justify-content-center uploadicons container-fluid">
-        <FaPlus size={"5rem"} color="#05386b" onClick={handleUpload}/>
-      </div>
+    <FaPlus size={"5rem"} color="#05386b" onClick={handleUpload} />
+    <span className="align-self-center ml-2">Upload Coupon</span>
+</div>
+
       {/* <Coupons /> */}
       <FetchData />
       <Footer />

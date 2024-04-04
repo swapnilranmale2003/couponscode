@@ -3,6 +3,8 @@ import "./AboutSection.css";
 function AboutSection() {
   return (
     <div>
+          <h1 className="text-center color">About Us</h1>
+
       <div className="about-section my-4">
       <div className="container">
         <div className="row my-3">
