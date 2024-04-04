@@ -1,9 +1,11 @@
-
+.about-section{
+    height: 78vh;
+}
 .about-left {
-    height: 500px;
+    height: 650px;
     width: 100%;
-    background-color: #F0A500;
-    color: #000;
+    background-color: #05386b;
+    color: #FFF;
     border-radius: 20px;
     padding: 1rem;
     /* margin: 1rem; */
@@ -13,7 +15,7 @@
    
 }
 .about-right{
-    height: 500px;
+    height: 650px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -27,16 +29,22 @@
     gap: 12px 0;
 }
 .about-right .box1 {
-    width: 70%;
-    background-color: #1B1A17;
-    color: #F0A500;
+    width: 80%;
+    background-color: #379683;
+    color: #FFF;
     /* margin-bottom: 2rem; */
     border-radius: 12px;
-    height: 270px;
+    height: 350px;
     padding: 1rem;
+    
    
 }
 .box1>h1{
     font-size: 1.2rem;
     padding: 1rem 2rem;
+}
+
+.box1-heading{
+    font-size: 1.4rem;
+    font-weight: 600;
 }
