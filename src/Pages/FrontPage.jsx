@@ -4,10 +4,11 @@ import Coupons from "../components/Coupons/Coupons";
 import Footer from "../components/Footer/Footer";
 import { FaPlus } from "react-icons/fa6";
 import { useNavigate } from "react-router-dom";
+import { Upload } from "../components/Uploadcoupon/Upload";
 function FrontPage() {
   const navigate = useNavigate();
   const handleUpload = ()=>{
-    navigate("/upload");
+    navigate("/Upload");
   }
   return (
     <div>
