@@ -2,11 +2,11 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 71px;
+    height: 100px;
     color: #05386b;
 }
 
-.linkStyle:hover{
+.linkStyle:hover {
     font-weight: normal;
     text-decoration: none;
     color: #05386b;
@@ -20,4 +20,27 @@
     font-size: 1.3rem;
     font-weight: 600;
     padding: 0 12px;
+}
+
+.logo > img {
+    width: 100%; /* Make the image responsive */
+    max-width: 240px; /* Set maximum width */
+    height: auto;
+    padding-top: 2rem;
+    animation: zoomInOut 3s infinite alternate; /* Apply animation */
+}
+
+@keyframes zoomInOut {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1.1); /* Zoom in to 110% */
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .logo > img {
+        max-width: 200px; /* Adjust maximum width for smaller screens */
+    }
 }

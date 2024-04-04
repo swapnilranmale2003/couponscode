@@ -9,7 +9,7 @@ import Signup from './components/Signup/Signup';
 import FrontPage from './Pages/FrontPage';
 import About from './Pages/About';
 import Contact from './Pages/Contact';
-import { Upload } from 'lucide-react';
+import Upload from './components/Upload coupon/Upload';
   // <<<<<<< HEAD
 
 

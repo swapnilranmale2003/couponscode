@@ -6,7 +6,7 @@ function Navbar() {
     <div className='container-fluid'>
       <div className="navbar-header">
         <div className="logo">
-           <h4>Logo</h4>
+           <img src="logo.png" alt="" />
         </div>
         <div className="nav-menu">
             <ul>
