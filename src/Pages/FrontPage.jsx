@@ -4,6 +4,7 @@ import Coupons from "../components/Coupons/Coupons";
 import Footer from "../components/Footer/Footer";
 import { FaPlus } from "react-icons/fa6";
 import { useNavigate } from "react-router-dom";
+import FetchData from "../components/FetchData";
 function FrontPage() {
   const navigate = useNavigate();
   const handleUpload = ()=>{
@@ -15,7 +16,8 @@ function FrontPage() {
       <div className="d-flex justify-content-center uploadicons container-fluid">
         <FaPlus size={"5rem"} color="#05386b" onClick={handleUpload}/>
       </div>
-      <Coupons />
+      {/* <Coupons /> */}
+      <FetchData />
       <Footer />
     </div>
   );
