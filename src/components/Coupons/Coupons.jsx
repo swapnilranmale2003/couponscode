@@ -3,7 +3,7 @@ import "./Coupons.css";
 function Coupons() {
   return (
     <div>
-      <div className="container my-">
+      <div className="container">
         <div className="row">
           <div className="col-md-4">
             <div className="coupon">
