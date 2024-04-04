@@ -42,7 +42,9 @@ function Upload() {
   };
   return (
     <>
-      <h1 className="text-center">Upload Coupons</h1>
+    <div className="upload-section">
+      <h1 className="text-center color">Upload Coupons</h1>
+
       <div className="container my-5 upload-coupons">
         <form method="POST">
           <div className="inputs">
@@ -89,12 +91,13 @@ function Upload() {
               onChange={data}
             ></textarea>
           </div>
-          <div>
-            <button type="submit" className="btn btn-dark" onClick={getData}>
+          <div className="upload-btn">
+            <button type="submit" onClick={getData}>
               Submit
             </button>
           </div>
         </form>
+      </div>
       </div>
     </>
   );
