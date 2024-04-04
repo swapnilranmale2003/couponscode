@@ -1,11 +1,16 @@
 import React from 'react'
 import './Navbar.css'
 import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 function Navbar() {
+  const navigate = useNavigate();
+  const handleLogoClick = ()=>{
+    navigate("/frontpage");
+  }
   return (
     <div className='container-fluid'>
       <div className="navbar-header">
-        <div className="logo">
+        <div className="logo" onClick={handleLogoClick}>
            <img src="logo.png" alt="" />
         </div>
         <div className="nav-menu">
