@@ -86,6 +86,7 @@ function Upload() {
                 autoComplete="off"
                 value={user.link}
                 onChange={data}
+                required
               />
               <input
                 type="text"
