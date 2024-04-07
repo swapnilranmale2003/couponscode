@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Herr+Von+Muellerhoff&display=swap');
+
+.education-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    /* Set the height of the container to 100% of the viewport height */
+}
+
+.content {
+    display: flex;
+    align-items: center;
+}
+
+h1 {
+    margin-right: 20px;
+    /* Add spacing between the heading and the image */
+    position: absolute;
+    top: 20%;
+    left: 47%;
+    /* Center the heading horizontally */
+    transform: translateX(-50%);
+    /* Center the heading horizontally */
+    font-family: "Herr Von Muellerhoff", cursive;
+    font-size: 100px;
+    color: #c59d5f;
+}
+
+.image-container {
+    margin-left: auto;
+    /* Align the image to the right */
+}
+
+.education-image {
+    max-width: 100%;
+    /* Set the maximum width of the image */
+    height: auto;
+    /* Allow the height to adjust proportionally */
+}
+
+/* Media query for smaller screens */
+@media screen and (max-width: 768px) {
+    h1 {
+        font-size: 1.5rem;
+        /* Reduce font size for smaller screens */
+        text-align: center;
+        /* Center the heading text */
+        position: static;
+        /* Reset position for smaller screens */
+        transform: none;
+        /* Reset transform for smaller screens */
+        margin: 20px 0;
+        /* Add margin to the heading */
+    }
+
+    .content {
+        flex-direction: column;
+        /* Stack content vertically on smaller screens */
+        align-items: center;
+        /* Center content vertically on smaller screens */
+    }
+
+    .image-container {
+        margin: 20px auto;
+        /* Center image horizontally on smaller screens */
+    }
+}
