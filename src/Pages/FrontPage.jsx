@@ -7,17 +7,17 @@ import { useNavigate } from "react-router-dom";
 import FetchData from "../components/FetchData";
 function FrontPage() {
   const navigate = useNavigate();
-  const handleUpload = ()=>{
+  const handleUpload = () => {
     navigate("/upload");
-  }
+  };
   return (
     <div>
       <Navbar />
-      
+
       <div className="d-flex justify-content-center uploadicons container-fluid">
-    <FaPlus size={"5rem"} color="#05386b" onClick={handleUpload} />
-    <span className="align-self-center ml-2">Upload Coupon</span>
-</div>
+        <FaPlus size={"5rem"} color="#05386b" onClick={handleUpload} />
+        <span className="align-self-center ml-2">Upload Coupon</span>
+      </div>
 
       {/* <Coupons /> */}
       <FetchData />

@@ -1,32 +1,32 @@
-.navbar-header {
+  .navbar-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     height: 100px;
     color: #05386b;
   }
-  
+
   .nav-menu {
     display: flex;
     align-items: center;
   }
-  
+
   .logo {
     text-align: center; /* Center the logo */
   }
-  
+
   .logo > img {
     max-width: 200px;
     height: auto;
     padding-top: 1rem;
     animation: zoomInOut 3s infinite alternate;
   }
-  
+
   .nav-menu ul {
     display: flex;
     align-items: center;
   }
-  
+
   .linkStyle {
     text-decoration: none;
     color: #05386b;
@@ -35,10 +35,11 @@
     font-weight: 600;
     padding: 0 12px;
   }
-  
+
   .dropdown select {
     width: 200px;
     padding: 8px;
+    height: 45px;
     font-size: 1.2rem;
     border-radius: 5px;
     border: 1px solid #ccc;
@@ -54,12 +55,12 @@
   .dropdown select:hover {
     border-color: #007bff;
   }
-  
+
   .dropdown select:focus {
     outline: none;
     border-color: #007bff;
   }
-  
+
   .dropdown::after {
     content: "\25BE"; /* Unicode character for down arrow */
     position: absolute;
@@ -68,4 +69,5 @@
     transform: translateY(-50%);
     pointer-events: none; /* Ensure it doesn't interfere with select */
   }
-  
+
+

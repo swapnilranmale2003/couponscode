@@ -13,6 +13,7 @@ import Upload from './components/Upload coupon/Upload';
 import Tippy from '@tippy.js/react';
 import 'tippy.js/dist/tippy.css';
 import Education from './Pages/Education';
+import EducationUpload from './components/EducationUpload/EducationUpload';
 // <<<<<<< HEAD
 
 
@@ -47,6 +48,7 @@ function App() {
           <Route path='/contact' element={<Contact />} />
 
           <Route path='/categories/education' element={<Education />} />
+          <Route path="/categories/education/educationupload" element={<EducationUpload />} />
 
         </Routes>
       </div>

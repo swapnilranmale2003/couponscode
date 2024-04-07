@@ -1,0 +1,12 @@
+/* EducationUpload.css */
+
+/* Override the default Breadcrumb background color */
+.breadcrumb {
+    background-color: transparent;
+  }
+  
+  /* Style for active Breadcrumb item */
+  .breadcrumb .active {
+    color: #05386b; /* Change text color for active item */
+  }
+  

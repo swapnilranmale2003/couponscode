@@ -1,7 +1,7 @@
-import React from "react";
-import "./Navbar.css";
-import { Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
+import React from 'react';
+import './Navbar.css';
+import { Link, NavLink } from 'react-router-dom'; // Import NavLink for active styling
+import { useNavigate } from 'react-router-dom';
 
 function Navbar() {
   const navigate = useNavigate();
@@ -16,28 +16,20 @@ function Navbar() {
   };
 
   return (
-    <div className="container-fluid">
+    <div className='container-fluid'>
       <div className="navbar-header">
         <div className="logo" onClick={handleLogoClick}>
-          <img src="logo.png" alt="" />
+          <img src="/logo.png" alt="Logo" /> {/* Update src to use correct path */}
         </div>
         <div className="nav-menu">
           <ul>
-            <Link className="linkStyle" to={"/frontpage"}>
-              Home
-            </Link>
-            <Link className="linkStyle" to={"/about"}>
-              About Us
-            </Link>
-            <Link className="linkStyle" to={"/contact"}>
-              Contact Us
-            </Link>
-
-            <Link className="linkStyle" to={"/"}>
-              Login/SignUp
-            </Link>
-            <li className="dropdown" style={{ marginRight: "10px" }}>
-              <select onChange={handleCategoryChange}>
+            {/* Use NavLink instead of Link for active styling */}
+            <li><NavLink exact className='linkStyle' activeClassName="active" to={"/frontpage"}>Home</NavLink></li>
+            <li><NavLink className='linkStyle' activeClassName="active" to={"/about"}>About Us</NavLink></li>
+            <li><NavLink className='linkStyle' activeClassName="active" to={"/contact"}>Contact Us</NavLink></li>
+            <li><NavLink className='linkStyle' activeClassName="active" to={"/login"}>Login/SignUp</NavLink></li>
+            <li className="dropdown">
+              <select className='linkStyle' onChange={handleCategoryChange}>
                 <option value="">Select Category</option>
                 <option value="education">Education</option>
                 <option value="foods">Foods</option>

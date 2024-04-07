@@ -1,24 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Herr+Von+Muellerhoff&display=swap');
 
-.education-container {
+.education-hero {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 100vh;
-    /* Set the height of the container to 100% of the viewport height */
+    justify-content: space-between;
 }
 
-.content {
-    display: flex;
-    align-items: center;
-}
-
-h1 {
+.ed-h1>h1 {
     margin-right: 20px;
     /* Add spacing between the heading and the image */
     position: absolute;
-    top: 20%;
-    left: 47%;
+    top: 18%;
+    right: 4%;
     /* Center the heading horizontally */
     transform: translateX(-50%);
     /* Center the heading horizontally */
@@ -27,42 +19,19 @@ h1 {
     color: #c59d5f;
 }
 
-.image-container {
-    margin-left: auto;
-    /* Align the image to the right */
+.ed-btn {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 0 1rem;
+
 }
 
-.education-image {
-    max-width: 100%;
-    /* Set the maximum width of the image */
-    height: auto;
-    /* Allow the height to adjust proportionally */
+.ed-btn>button {
+    width: 500px;
+    height: 70px;
+    font-size: 2rem;
 }
-
-/* Media query for smaller screens */
-@media screen and (max-width: 768px) {
-    h1 {
-        font-size: 1.5rem;
-        /* Reduce font size for smaller screens */
-        text-align: center;
-        /* Center the heading text */
-        position: static;
-        /* Reset position for smaller screens */
-        transform: none;
-        /* Reset transform for smaller screens */
-        margin: 20px 0;
-        /* Add margin to the heading */
-    }
-
-    .content {
-        flex-direction: column;
-        /* Stack content vertically on smaller screens */
-        align-items: center;
-        /* Center content vertically on smaller screens */
-    }
-
-    .image-container {
-        margin: 20px auto;
-        /* Center image horizontally on smaller screens */
-    }
+.ed-btn>span{
+    font-size: 1.5rem;
 }
