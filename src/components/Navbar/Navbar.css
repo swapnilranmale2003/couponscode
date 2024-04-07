@@ -4,49 +4,68 @@
     align-items: center;
     height: 100px;
     color: #05386b;
-}
-
-.linkStyle:hover {
-    font-weight: normal;
-    text-decoration: none;
-    color: #05386b;
-}
-
-.linkStyle {
-    text-decoration: none;
-    color: #05386b;
-    height: 30px;
-    width: 90px;
-    font-size: 1.3rem;
-    font-weight: 600;
-    padding: 0 12px;
-}
-
-.logo>img {
-    width: 60%;
-    /* Make the image responsive */
-    max-width: 240px;
-    /* Set maximum width */
+  }
+  
+  .nav-menu {
+    display: flex;
+    align-items: center;
+  }
+  
+  .logo {
+    text-align: center; /* Center the logo */
+  }
+  
+  .logo > img {
+    max-width: 200px;
     height: auto;
     padding-top: 1rem;
     animation: zoomInOut 3s infinite alternate;
-    /* Apply animation */
-}
-
-@keyframes zoomInOut {
-    0% {
-        transform: scale(1);
-    }
-
-    100% {
-        transform: scale(1.1);
-        /* Zoom in to 110% */
-    }
-}
-
-@media screen and (max-width: 768px) {
-    .logo>img {
-        max-width: 200px;
-        /* Adjust maximum width for smaller screens */
-    }
-}
+  }
+  
+  .nav-menu ul {
+    display: flex;
+    align-items: center;
+  }
+  
+  .linkStyle {
+    text-decoration: none;
+    color: #05386b;
+    height: 30px;
+    font-size: 1.3rem;
+    font-weight: 600;
+    padding: 0 12px;
+  }
+  
+  .dropdown select {
+    width: 200px;
+    padding: 8px;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    color: #05386b;
+    appearance: none; /* Remove default appearance */
+    -webkit-appearance: none; /* Remove default appearance for WebKit (Safari) */
+    -moz-appearance: none; /* Remove default appearance for Mozilla (Firefox) */
+  }
+  li{
+    list-style: none;
+  }
+  .dropdown select:hover {
+    border-color: #007bff;
+  }
+  
+  .dropdown select:focus {
+    outline: none;
+    border-color: #007bff;
+  }
+  
+  .dropdown::after {
+    content: "\25BE"; /* Unicode character for down arrow */
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    pointer-events: none; /* Ensure it doesn't interfere with select */
+  }
+  
