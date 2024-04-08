@@ -3,6 +3,7 @@ import InputControl from "../InputControl";
 import { Link, useNavigate } from "react-router-dom";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../firebase";
+import "./Login.css";
 
 function Login() {
   const navigate = useNavigate();
@@ -13,6 +14,7 @@ function Login() {
 
   const [errorMsg, setErrorMsg] = useState("");
   const [submitButtonDisabled, setSubmitButtonDisabled] = useState(false);
+
   const handleSubmission = () => {
     if (!values.email || !values.pass) {
       setErrorMsg("Fill all fields");
@@ -30,9 +32,10 @@ function Login() {
         setErrorMsg(err.message);
       });
   };
+
   return (
-    <>
-      <div>
+    <div className="login-container">
+      <div className="login-form">
         <h1>Login</h1>
         <InputControl
           label="Email"
@@ -46,6 +49,7 @@ function Login() {
         />
         <InputControl
           label="Password"
+          type="password"
           onChange={(event) =>
             setValues((prev) => ({
               ...prev,
@@ -54,22 +58,22 @@ function Login() {
           }
           placeholder="Enter Password"
         />
-      </div>
-      <div>
         <b>{errorMsg}</b>
-        <button disabled={submitButtonDisabled} onClick={handleSubmission}>
+        <button
+          className="submit-button"
+          disabled={submitButtonDisabled}
+          onClick={handleSubmission}
+        >
           Login
         </button>
         <p>
-          Already Have an account ?{" "}
-          <span>
-            <Link className="colorbc" to="/signup">
-              Signup
-            </Link>
-          </span>
+          Already Have an account?{" "}
+          <Link className="signup-link" to="/signup">
+            Signup
+          </Link>
         </p>
       </div>
-    </>
+    </div>
   );
 }
 
