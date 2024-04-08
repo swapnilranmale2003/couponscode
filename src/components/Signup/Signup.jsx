@@ -3,6 +3,8 @@ import InputControl from "../InputControl";
 import { Link, useNavigate } from "react-router-dom";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth } from "../../firebase";
+import "./Signup.css"; // Importing CSS file for styling
+
 function Signup() {
   const navigate = useNavigate();
   const [values, setValues] = useState({
@@ -13,6 +15,7 @@ function Signup() {
 
   const [errorMsg, setErrorMsg] = useState("");
   const [submitButtonDisabled, setSubmitButtonDisabled] = useState(false);
+
   const handleSubmission = () => {
     if (!values.name || !values.email || !values.pass) {
       setErrorMsg("Fill all fields");
@@ -34,46 +37,50 @@ function Signup() {
         setErrorMsg(err.message);
       });
   };
+
   return (
     <>
-      <div>
-        <h1>Signup</h1>
-        <InputControl
-          label="Name"
-          placeholder="Enter Name"
-          onChange={(event) =>
-            setValues((prev) => ({ ...prev, name: event.target.value }))
-          }
-        />
+      <div className="signup-container">
+        <div className="signup-form">
+          <h1>Signup</h1>
+          <InputControl
+            label="Name"
+            placeholder="Enter Name"
+            onChange={(event) =>
+              setValues((prev) => ({ ...prev, name: event.target.value }))
+            }
+          />
 
-        <InputControl
-          label="Email"
-          placeholder="Enter Email"
-          onChange={(event) =>
-            setValues((prev) => ({ ...prev, email: event.target.value }))
-          }
-        />
-        <InputControl
-          label="Password"
-          placeholder="Enter Password"
-          onChange={(event) =>
-            setValues((prev) => ({ ...prev, pass: event.target.value }))
-          }
-        />
-      </div>
-      <div>
-        <button onClick={handleSubmission} disabled={submitButtonDisabled}>
-          Signup
-        </button>
-        <p>
-          Already Have an account ?{" "}
-          <span>
-            <b>{errorMsg}</b>
-            <Link className="colorbc" to="/login">
+          <InputControl
+            label="Email"
+            placeholder="Enter Email"
+            onChange={(event) =>
+              setValues((prev) => ({ ...prev, email: event.target.value }))
+            }
+          />
+          <InputControl
+            label="Password"
+            placeholder="Enter Password"
+            type="password"
+            onChange={(event) =>
+              setValues((prev) => ({ ...prev, pass: event.target.value }))
+            }
+          />
+          <b>{errorMsg}</b>
+          <button
+            className="submit-button"
+            onClick={handleSubmission}
+            disabled={submitButtonDisabled}
+          >
+            Signup
+          </button>
+          <p>
+            Already Have an account ?{" "}
+            <Link className="login-link" to="/login">
               Login
             </Link>
-          </span>
-        </p>
+          </p>
+        </div>
       </div>
     </>
   );
