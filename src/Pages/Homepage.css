@@ -1,0 +1,43 @@
+.homepage-container {
+    text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+    height: 100vh;
+  }
+  
+  .box-container {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .box {
+    width: 150px;
+    height: 100px;
+    background-color: #007bff;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    margin: 0 10px;
+    transition: all 0.3s ease;
+  }
+  
+  .box:hover {
+    background-color: #0056b3;
+  }
+  
+  .link-style {
+    text-decoration: none;
+    color: #fff;
+    font-size: 24px;
+  }
+  
+  .welcome-message {
+    margin-top: 50px;
+    font-size: 20px;
+    color: #555;
+  }
+  
