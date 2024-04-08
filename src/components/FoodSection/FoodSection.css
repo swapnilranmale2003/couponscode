@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Herr+Von+Muellerhoff&display=swap');
+
+.food-hero {
+    display: flex;
+    justify-content: space-between;
+}
+
+.fd-h1>h1 {
+    margin-right: 20px;
+    /* Add spacing between the heading and the image */
+    position: absolute;
+    top: 18%;
+    right: 8%;
+    /* Center the heading horizontally */
+    transform: translateX(-50%);
+    /* Center the heading horizontally */
+    font-family: "Herr Von Muellerhoff", cursive;
+    font-size: 100px;
+    color: #c59d5f;
+}
+
+.fd-btn {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 0 1rem;
+
+}
+
+.fd-btn>button {
+    width: 500px;
+    height: 70px;
+    font-size: 2rem;
+}
+.fd-btn>span{
+    font-size: 1.5rem;
+}
