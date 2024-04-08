@@ -7,13 +7,13 @@
 
 .ed-h1>h1 {
     margin-right: 20px;
-    /* Add spacing between the heading and the image */
+
     position: absolute;
     top: 18%;
     right: 4%;
-    /* Center the heading horizontally */
+
     transform: translateX(-50%);
-    /* Center the heading horizontally */
+
     font-family: "Herr Von Muellerhoff", cursive;
     font-size: 100px;
     color: #c59d5f;
@@ -32,6 +32,7 @@
     height: 70px;
     font-size: 2rem;
 }
-.ed-btn>span{
+
+.ed-btn>span {
     font-size: 1.5rem;
 }
