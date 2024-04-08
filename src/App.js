@@ -14,6 +14,7 @@ import Tippy from '@tippy.js/react';
 import 'tippy.js/dist/tippy.css';
 import Education from './Pages/Education';
 import EducationUpload from './components/EducationUpload/EducationUpload';
+import Food from './Pages/Food';
 // <<<<<<< HEAD
 
 
@@ -48,14 +49,16 @@ function App() {
           <Route path='/contact' element={<Contact />} />
 
           <Route path='/categories/education' element={<Education />} />
+
           <Route path="/categories/education/educationupload" element={<EducationUpload />} />
 
+          <Route path='/categories/food' element={<Food />} />
         </Routes>
       </div>
       <div className='fixed-bottom right-100 p-3' style={{ zIndex: "6", left: "initial" }}>
         <a href="https://wa.me/9021190242?text=Hello%20How%20can%20I%20help%20you%20?" target='_blank'>
           <Tippy content={"Need Help? Chat with us"} placement='left'>
-          <img src="whasapp.png" alt="" width={"90"} />
+            <img src="whasapp.png" alt="" width={"90"} />
           </Tippy>
         </a>
 
