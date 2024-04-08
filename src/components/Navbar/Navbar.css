@@ -12,7 +12,7 @@
   }
 
   .logo {
-    text-align: center; /* Center the logo */
+    text-align: center; 
   }
 
   .logo > img {
@@ -45,9 +45,9 @@
     border: 1px solid #ccc;
     background-color: #fff;
     color: #05386b;
-    appearance: none; /* Remove default appearance */
-    -webkit-appearance: none; /* Remove default appearance for WebKit (Safari) */
-    -moz-appearance: none; /* Remove default appearance for Mozilla (Firefox) */
+    appearance: none; 
+    -webkit-appearance: none; 
+    -moz-appearance: none; 
   }
   li{
     list-style: none;
@@ -62,12 +62,11 @@
   }
 
   .dropdown::after {
-    content: "\25BE"; /* Unicode character for down arrow */
+    content: "\25BE"; 
     position: absolute;
     top: 50%;
     right: 10px;
     transform: translateY(-50%);
-    pointer-events: none; /* Ensure it doesn't interfere with select */
   }
 
 
