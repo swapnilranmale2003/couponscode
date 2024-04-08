@@ -1,6 +1,6 @@
 import React from "react";
 import Navbar from "../components/Navbar/Navbar";
-import Coupons from "../components/Coupons/Coupons";
+
 import Footer from "../components/Footer/Footer";
 import { FaPlus } from "react-icons/fa6";
 import { useNavigate } from "react-router-dom";
@@ -19,7 +19,6 @@ function FrontPage() {
         <span className="align-self-center ml-2">Upload Coupon</span>
       </div>
 
-      {/* <Coupons /> */}
       <FetchData />
       <Footer />
     </div>
