@@ -40,6 +40,7 @@ function EducationSection() {
         <h1>Education</h1>
         <EducationFetch />
       </div>
+      
     </>
   );
 }
