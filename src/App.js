@@ -15,6 +15,7 @@ import 'tippy.js/dist/tippy.css';
 import Education from './Pages/Education';
 import EducationUpload from './components/EducationUpload/EducationUpload';
 import Food from './Pages/Food';
+import FoodUpload from './components/FoodUpload/FoodUpload';
 // <<<<<<< HEAD
 
 
@@ -53,6 +54,8 @@ function App() {
           <Route path="/categories/education/educationupload" element={<EducationUpload />} />
 
           <Route path='/categories/food' element={<Food />} />
+          <Route path="/categories/food/foodupload" element={<FoodUpload />} />
+
         </Routes>
       </div>
       <div className='fixed-bottom right-100 p-3' style={{ zIndex: "6", left: "initial" }}>

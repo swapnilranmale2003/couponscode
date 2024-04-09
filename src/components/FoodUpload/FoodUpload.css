@@ -1,0 +1,10 @@
+
+.breadcrumb {
+    background-color: transparent;
+  }
+  
+  
+  .breadcrumb .active {
+    color: #05386b;
+  }
+  

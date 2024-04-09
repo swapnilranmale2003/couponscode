@@ -4,6 +4,7 @@ import { Breadcrumb } from "react-bootstrap";
 
 import { FaPlus } from "react-icons/fa"; // Import FaPlus icon
 import './FoodSection.css'
+import FoodFetch from "./FoodFetch";
 
 function FoodSection() {
   const navigate = useNavigate(); // Use the useNavigate hook to get the navigate function
@@ -37,7 +38,8 @@ function FoodSection() {
       </div>
       <div className="ml-5">
         <h1>Foods</h1>
-        
+       
+        <FoodFetch />
       </div>
     </>
   );
