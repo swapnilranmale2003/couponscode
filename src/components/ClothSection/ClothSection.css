@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Herr+Von+Muellerhoff&display=swap');
+
+.clothes-hero {
+    display: flex;
+    justify-content: space-between;
+}
+
+.cloth-h1>h1 {
+    margin-right: 20px;
+
+    position: absolute;
+    top: 18%;
+    right: 4%;
+
+    transform: translateX(-50%);
+
+    font-family: "Herr Von Muellerhoff", cursive;
+    font-size: 100px;
+    color: #c59d5f;
+}
+
+.cloth-btn {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 0 1rem;
+
+}
+
+.cloth-btn>button {
+    width: 500px;
+    height: 70px;
+    font-size: 2rem;
+}
+
+.cloth-btn>span {
+    font-size: 1.5rem;
+}

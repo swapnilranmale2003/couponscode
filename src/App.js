@@ -16,6 +16,8 @@ import Education from './Pages/Education';
 import EducationUpload from './components/EducationUpload/EducationUpload';
 import Food from './Pages/Food';
 import FoodUpload from './components/FoodUpload/FoodUpload';
+import Clothing from './Pages/Clothing';
+import ClothUpload from './components/ClothUpload/ClothUpload';
 // <<<<<<< HEAD
 
 
@@ -55,6 +57,10 @@ function App() {
 
           <Route path='/categories/food' element={<Food />} />
           <Route path="/categories/food/foodupload" element={<FoodUpload />} />
+
+          <Route path='/categories/clothings' element={<Clothing />} />
+          <Route path="/categories/clothings/clothupload" element={<ClothUpload />} />
+
 
         </Routes>
       </div>

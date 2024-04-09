@@ -1,9 +1,10 @@
 import React from 'react'
+import ClothSection from '../components/ClothSection/ClothSection'
 
 function Clothing() {
   return (
     <div>
-      Clothing
+      <ClothSection />
     </div>
   )
 }
