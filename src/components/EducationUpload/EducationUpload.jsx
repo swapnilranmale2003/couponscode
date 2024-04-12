@@ -5,6 +5,8 @@ import { Link, useNavigate } from "react-router-dom";
 import { Breadcrumb } from "react-bootstrap";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 function EducationUpload() {
   const navigate = useNavigate();
@@ -125,15 +127,17 @@ function EducationUpload() {
               value={user.description}
               onChange={data}
             ></textarea>
-            <input
-              type="date"
+            <DatePicker
               className="form-control"
               name="date"
-              placeholder="Enter the date"
+              placeholderText="Enter the date"
               required
               autoComplete="off"
-              value={user.date}
-              onChange={data}
+              selected={user.date}
+              onChange={(date) => setUser({ ...user, date })}
+              // minDate={new Date()}
+              showMonthDropdown
+              showYearDropdown
             />
           </div>
           {errorMessage && <p className="error-message">{errorMessage}</p>}{" "}
