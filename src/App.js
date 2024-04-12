@@ -1,41 +1,34 @@
-import './App.css';
-import { Route, Routes } from 'react-router-dom';
-import './App.css';
-import { auth } from './firebase';
-import { useEffect, useState } from 'react';
-import Homepage from './Pages/Homepage';
-import Login from './components/Login/Login';
-import Signup from './components/Signup/Signup';
-import FrontPage from './Pages/FrontPage';
-import About from './Pages/About';
-import Contact from './Pages/Contact';
-import Upload from './components/Upload coupon/Upload';
-import Tippy from '@tippy.js/react';
-import 'tippy.js/dist/tippy.css';
-import Education from './Pages/Education';
-import EducationUpload from './components/EducationUpload/EducationUpload';
-import Food from './Pages/Food';
-import FoodUpload from './components/FoodUpload/FoodUpload';
-import Clothing from './Pages/Clothing';
-import ClothUpload from './components/ClothUpload/ClothUpload';
-// <<<<<<< HEAD
-
-
-// >>>>>>> 69e1d9bc05e4f3f270c6192619653b38072a3517
+import React, { useState } from "react";
+import "./App.css";
+import { Route, Routes } from "react-router-dom";
+import "./App.css";
+import { auth } from "./firebase";
+import { useEffect } from "react";
+import Homepage from "./Pages/Homepage";
+import Login from "./components/Login/Login";
+import Signup from "./components/Signup/Signup";
+import FrontPage from "./Pages/FrontPage";
+import About from "./Pages/About";
+import Contact from "./Pages/Contact";
+import Upload from "./components/Upload coupon/Upload";
+import Tippy from "@tippy.js/react";
+import "tippy.js/dist/tippy.css";
+import Education from "./Pages/Education";
+import EducationUpload from "./components/EducationUpload/EducationUpload";
+import Food from "./Pages/Food";
+import FoodUpload from "./components/FoodUpload/FoodUpload";
+import Clothing from "./Pages/Clothing";
+import ClothUpload from "./components/ClothUpload/ClothUpload";
 
 function App() {
-  const [userName, setUsername] = useState();
+  const [userName, setUsername] = useState("");
+
   useEffect(() => {
     auth.onAuthStateChanged((user) => {
-      if (user) {
-        setUsername(user.displayName)
-      }
-      else {
-        setUsername("")
-      }
-      console.log(user)
-    })
-  }, [])
+      setUsername(user ? user.displayName : "");
+    });
+  }, []);
+
   return (
     <>
       <div className="App">
@@ -44,34 +37,32 @@ function App() {
           <Route path="/signup" element={<Signup />} />
           <Route path="/" element={<Homepage />} name={userName} />
           <Route path="/frontpage" element={<FrontPage />} />
-
           <Route path="/upload" element={<Upload />} />
-
-          <Route path='/about' element={<About />} />
-
-          <Route path='/contact' element={<Contact />} />
-
-          <Route path='/categories/education' element={<Education />} />
-
-          <Route path="/categories/education/educationupload" element={<EducationUpload />} />
-
-          <Route path='/categories/food' element={<Food />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/categories/education" element={<Education />} />
+          <Route
+            path="/categories/education/educationupload"
+            element={<EducationUpload />}
+          />
+          <Route path="/categories/food" element={<Food />} />
           <Route path="/categories/food/foodupload" element={<FoodUpload />} />
-
-          <Route path='/categories/clothings' element={<Clothing />} />
-          <Route path="/categories/clothings/clothupload" element={<ClothUpload />} />
-
-
+          <Route path="/categories/clothings" element={<Clothing />} />
+          <Route
+            path="/categories/clothings/clothupload"
+            element={<ClothUpload />}
+          />
         </Routes>
       </div>
-      <div className='fixed-bottom right-100 p-3' style={{ zIndex: "6", left: "initial" }}>
-        <a href="https://wa.me/9021190242?text=Hello%20How%20can%20I%20help%20you%20?" target='_blank'>
-          <Tippy content={"Need Help? Chat with us"} placement='left'>
+      <div
+        className="fixed-bottom right-100 p-3"
+        style={{ zIndex: "6", left: "initial" }}
+      >
+        <a href="https://wa.me/9021190242?text=Hello%20How%20can%20I%20help%20you%20?" target="_blank">
+          <Tippy content={"Need Help? Chat with us"} placement="left">
             <img src="whasapp.png" alt="" width={"90"} />
           </Tippy>
         </a>
-
-
       </div>
     </>
   );

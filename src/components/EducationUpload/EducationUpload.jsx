@@ -1,4 +1,3 @@
-// EducationUpload.jsx
 import React, { useState } from "react";
 import "./EducationUpload.css";
 import { Link, useNavigate } from "react-router-dom";
@@ -38,6 +37,12 @@ function EducationUpload() {
 
   const getData = async (e) => {
     e.preventDefault();
+  
+    // Input validation for link
+    if (!isValidLink(user.link)) {
+      setErrorMessage(<p className="error-message" style={{ color: "white" }}>Invalid link provided</p>);
+      return;
+    }
 
     const { title, link, couponcode, description, date } = user; // Added date
     const options = {
@@ -70,6 +75,14 @@ function EducationUpload() {
     }
   };
 
+  // Function to validate link
+  const isValidLink = (link) => {
+    // Regular expression to validate link format
+    const linkRegex = /^(ftp|http|https):\/\/[^ "]+$/;
+    // Check if the link is a YouTube video link
+    const youtubeRegex = /^(https?:\/\/)?((www\.)?youtube\.com\/(watch\?v=|embed\/)|youtu\.be\/)/;
+    return linkRegex.test(link) && !youtubeRegex.test(link);
+  };
   return (
     <div className="upload-section">
       <Breadcrumb>
