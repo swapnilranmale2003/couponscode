@@ -1,8 +1,9 @@
 footer {
     background-color: #05386b;
-    height: 100%;
+ 
     color: #FFFF;
     padding: 1rem 0;
+   
 }
 
 .footerlist>ul {
@@ -42,3 +43,12 @@ footer {
     width: 80%;
     margin: 0 auto;
 }
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #05386b;
+    color: #ffff;
+    padding: 1rem 0;
+  }
+  

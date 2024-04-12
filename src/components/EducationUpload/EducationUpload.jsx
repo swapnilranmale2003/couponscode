@@ -1,3 +1,4 @@
+// EducationUpload.jsx
 import React, { useState } from "react";
 import "./EducationUpload.css";
 import { Link, useNavigate } from "react-router-dom";
@@ -12,6 +13,7 @@ function EducationUpload() {
     link: "",
     couponcode: "",
     description: "",
+    date: "", // Added date field
   });
 
   const [errorMessage, setErrorMessage] = useState("");
@@ -35,8 +37,7 @@ function EducationUpload() {
   const getData = async (e) => {
     e.preventDefault();
 
-    const { title, link, couponcode, description } = user;
-
+    const { title, link, couponcode, description, date } = user; // Added date
     const options = {
       method: "POST",
       headers: {
@@ -47,6 +48,7 @@ function EducationUpload() {
         link,
         couponcode,
         description,
+        date, // Include date in the data sent to the database
       }),
     };
 
@@ -57,7 +59,7 @@ function EducationUpload() {
       );
 
       if (res.ok) {
-        toast.success("Your coupon is uploaded"); // Show success notification
+        toast.success("Your coupon is uploaded");
       } else {
         throw new Error("Failed to upload coupon");
       }
@@ -123,6 +125,16 @@ function EducationUpload() {
               value={user.description}
               onChange={data}
             ></textarea>
+            <input
+              type="date"
+              className="form-control"
+              name="date"
+              placeholder="Enter the date"
+              required
+              autoComplete="off"
+              value={user.date}
+              onChange={data}
+            />
           </div>
           {errorMessage && <p className="error-message">{errorMessage}</p>}{" "}
           <div className="upload-btn">
@@ -135,7 +147,7 @@ function EducationUpload() {
       <div className="getcoupons">
         <button onClick={handleGetECoupons}>Get Education Coupons</button>
       </div>
-      <ToastContainer /> {/* React Toastify container */}
+      <ToastContainer />
     </div>
   );
 }
