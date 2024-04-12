@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import InputControl from "../InputControl";
 import { Link, useNavigate } from "react-router-dom";
-import { signInWithEmailAndPassword } from "firebase/auth";
+import { signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { auth } from "../../firebase";
+import InputControl from "../InputControl";
 import "./Login.css";
 
 function Login() {
@@ -15,7 +15,7 @@ function Login() {
   const [errorMsg, setErrorMsg] = useState("");
   const [submitButtonDisabled, setSubmitButtonDisabled] = useState(false);
 
-  const handleSubmission = () => {
+  const handleEmailAndPasswordLogin = () => {
     if (!values.email || !values.pass) {
       setErrorMsg("Fill all fields");
       return;
@@ -32,6 +32,8 @@ function Login() {
         setErrorMsg(err.message);
       });
   };
+
+  
 
   return (
     <div className="login-container">
@@ -62,10 +64,11 @@ function Login() {
         <button
           className="submit-button"
           disabled={submitButtonDisabled}
-          onClick={handleSubmission}
+          onClick={handleEmailAndPasswordLogin}
         >
-          Login
+          Login with Email
         </button>
+      
         <p>
           Already Have an account?{" "}
           <Link className="signup-link" to="/signup">

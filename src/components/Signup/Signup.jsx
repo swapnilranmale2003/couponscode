@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import InputControl from "../InputControl";
 import { Link, useNavigate } from "react-router-dom";
-import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
+import { createUserWithEmailAndPassword, updateProfile, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { auth } from "../../firebase";
 import "./Signup.css"; // Importing CSS file for styling
 
@@ -16,9 +16,21 @@ function Signup() {
   const [errorMsg, setErrorMsg] = useState("");
   const [submitButtonDisabled, setSubmitButtonDisabled] = useState(false);
 
+  const isValidEmail = (email) => {
+    // Regular expression for email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  };
+
+ 
+
   const handleSubmission = () => {
     if (!values.name || !values.email || !values.pass) {
       setErrorMsg("Fill all fields");
+      return;
+    }
+    if (!isValidEmail(values.email)) {
+      setErrorMsg("Enter a valid email address");
       return;
     }
     setErrorMsg("");
@@ -72,8 +84,9 @@ function Signup() {
             onClick={handleSubmission}
             disabled={submitButtonDisabled}
           >
-            Signup
+            Signup with Email
           </button>
+        
           <p>
             Already Have an account ?{" "}
             <Link className="login-link" to="/login">
