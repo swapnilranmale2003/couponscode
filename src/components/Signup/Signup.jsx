@@ -3,7 +3,7 @@ import InputControl from "../InputControl";
 import { Link, useNavigate } from "react-router-dom";
 import { createUserWithEmailAndPassword, updateProfile, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { auth } from "../../firebase";
-import "./Signup.css"; // Importing CSS file for styling
+import "./Signup.css"; 
 
 function Signup() {
   const navigate = useNavigate();
@@ -17,7 +17,7 @@ function Signup() {
   const [submitButtonDisabled, setSubmitButtonDisabled] = useState(false);
 
   const isValidEmail = (email) => {
-    // Regular expression for email validation
+
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailRegex.test(email);
   };
