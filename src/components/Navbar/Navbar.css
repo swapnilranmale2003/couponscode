@@ -3,7 +3,7 @@
     justify-content: space-between;
     align-items: center;
     height: 100px;
-    color: #05386b;
+
   }
 
   .nav-menu {
@@ -12,10 +12,10 @@
   }
 
   .logo {
-    text-align: center; 
+    text-align: center;
   }
 
-  .logo > img {
+  .logo>img {
     max-width: 200px;
     height: auto;
     padding-top: 1rem;
@@ -29,10 +29,9 @@
 
   .linkStyle {
     text-decoration: none;
-    color: #05386b;
+    color: #FFFFFF;
     height: 30px;
     font-size: 1.3rem;
-    font-weight: 600;
     padding: 0 12px;
   }
 
@@ -45,13 +44,15 @@
     border: 1px solid #ccc;
     background-color: #fff;
     color: #05386b;
-    appearance: none; 
-    -webkit-appearance: none; 
-    -moz-appearance: none; 
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
   }
-  li{
+
+  li {
     list-style: none;
   }
+
   .dropdown select:hover {
     border-color: #007bff;
   }
@@ -62,11 +63,9 @@
   }
 
   .dropdown::after {
-    content: "\25BE"; 
+    content: "\25BE";
     position: absolute;
     top: 50%;
     right: 10px;
     transform: translateY(-50%);
   }
-
-
