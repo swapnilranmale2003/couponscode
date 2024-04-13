@@ -9,15 +9,18 @@
     width: 100%;
     max-width: 400px;
     padding: 40px;
-    border-radius: 5px;
+    border-radius: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    background-color: #05386b;
+    background-color: #000;
     color: #fff;
+    border: 1px solid #ebcc028c;
+
   }
   
-  h1 {
+  .signup-form>h1 {
     text-align: center;
     margin-bottom: 30px;
+    color: #F0A500;
   }
   
   .submit-button {
@@ -39,9 +42,10 @@
   .login-link {
     display: block;
     text-align: center;
-    color: #007bff;
+    color: #F0A500;
     text-decoration: none;
     margin-top: 20px;
+    font-size: 1.5rem;
   }
   
   .login-link:hover {

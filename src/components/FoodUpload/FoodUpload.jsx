@@ -4,6 +4,34 @@ import { Link, useNavigate } from "react-router-dom";
 import { Breadcrumb } from "react-bootstrap";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+
+// Function to validate link
+const isValidLink = (link) => {
+  // Regular expression to validate link format
+  const linkRegex = /^(ftp|http|https):\/\/[^ "]+$/;
+  // Check if link matches the format
+  if (!linkRegex.test(link)) {
+    return false;
+  }
+
+  // Blacklist of keywords or file extensions
+  const blacklist = ["mp4", "sex", "porn", "xxx", "adult"];
+  // Check if the link contains any blacklisted keyword or file extension
+  if (blacklist.some(keyword => link.toLowerCase().includes(keyword))) {
+    return false;
+  }
+
+  // Check if the link is a YouTube video link
+  const youtubeRegex = /^(https?:\/\/)?((www\.)?youtube\.com\/(watch\?v=|embed\/)|youtu\.be\/)/;
+  if (youtubeRegex.test(link)) {
+    return false;
+  }
+
+  return true;
+};
+
 
 function FoodUpload() {
   const navigate = useNavigate();
@@ -12,6 +40,7 @@ function FoodUpload() {
     link: "",
     couponcode: "",
     description: "",
+    date: null, // Initialize date as null
   });
 
   const [errorMessage, setErrorMessage] = useState("");
@@ -26,7 +55,7 @@ function FoodUpload() {
     }
   };
 
-  const handleGetECoupons = () => {
+  const handleGetFoodCoupons = () => {
     setTimeout(() => {
       navigate("/categories/food");
     }, 1000);
@@ -35,7 +64,19 @@ function FoodUpload() {
   const getData = async (e) => {
     e.preventDefault();
 
-    const { title, link, couponcode, description } = user;
+    const { title, link, couponcode, description, date } = user;
+
+    // Check if any required fields are empty
+    if (!title || !couponcode || !date) {
+      setErrorMessage("Please fill in all required fields");
+      return;
+    }
+
+    // Check if link is valid
+    if (!isValidLink(link)) {
+      setErrorMessage("Please enter a valid link");
+      return;
+    }
 
     const options = {
       method: "POST",
@@ -47,6 +88,7 @@ function FoodUpload() {
         link,
         couponcode,
         description,
+        date,
       }),
     };
 
@@ -57,7 +99,7 @@ function FoodUpload() {
       );
 
       if (res.ok) {
-        toast.success("Your coupon is uploaded"); // Show success notification
+        toast.success("Your coupon is uploaded");
       } else {
         throw new Error("Failed to upload coupon");
       }
@@ -72,10 +114,7 @@ function FoodUpload() {
         <Breadcrumb.Item linkAs={Link} linkProps={{ to: "/frontpage" }}>
           Home
         </Breadcrumb.Item>
-        <Breadcrumb.Item
-          linkAs={Link}
-          linkProps={{ to: "/categories/food" }}
-        >
+        <Breadcrumb.Item linkAs={Link} linkProps={{ to: "/categories/food" }}>
           Food
         </Breadcrumb.Item>
         <Breadcrumb.Item active>Upload Coupons</Breadcrumb.Item>
@@ -123,8 +162,17 @@ function FoodUpload() {
               value={user.description}
               onChange={data}
             ></textarea>
+            <DatePicker
+              className="form-control"
+              selected={user.date}
+              onChange={(date) => setUser({ ...user, date })}
+              placeholderText="Enter the date"
+              autoComplete="off"
+              required
+              minDate={Date.now()}
+            />
           </div>
-          {errorMessage && <p className="error-message">{errorMessage}</p>}{" "}
+          {errorMessage && <p className="error-message">{errorMessage}</p>}
           <div className="upload-btn">
             <button type="submit" onClick={getData}>
               Submit
@@ -133,9 +181,9 @@ function FoodUpload() {
         </form>
       </div>
       <div className="getcoupons">
-        <button onClick={handleGetECoupons}>Get Food Coupons</button>
+        <button onClick={handleGetFoodCoupons}>Get Food Coupons</button>
       </div>
-      <ToastContainer /> {/* React Toastify container */}
+      <ToastContainer />
     </div>
   );
 }

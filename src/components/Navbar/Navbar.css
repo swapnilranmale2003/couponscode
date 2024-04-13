@@ -74,7 +74,7 @@
     -moz-appearance: none;
   }
 
-  li {
+  .nav-menu>ul>li {
     list-style: none;
     display: block;
     padding-left: 32px;

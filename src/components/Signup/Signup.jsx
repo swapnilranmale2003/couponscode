@@ -57,6 +57,8 @@ function Signup() {
           <h1>Signup</h1>
           <InputControl
             label="Name"
+                      style={{ height: "40px", borderRadius: "5px", border:"none" }}
+
             placeholder="Enter Name"
             onChange={(event) =>
               setValues((prev) => ({ ...prev, name: event.target.value }))
@@ -65,6 +67,8 @@ function Signup() {
 
           <InputControl
             label="Email"
+                      style={{ height: "40px", borderRadius: "5px", border:"none" }}
+
             placeholder="Enter Email"
             onChange={(event) =>
               setValues((prev) => ({ ...prev, email: event.target.value }))
@@ -72,6 +76,8 @@ function Signup() {
           />
           <InputControl
             label="Password"
+            style={{ height: "40px", borderRadius: "5px", border:"none" }}
+
             placeholder="Enter Password"
             type="password"
             onChange={(event) =>

@@ -5,11 +5,12 @@
 .contact-form {
     width: 30%;
     height: 550px;
-    background-color: #05386b;
-    border-radius: 5px;
+    background-color: #000;
+    border-radius: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
+    border: 1px solid #ebcc028c;
 
 
 }
@@ -30,7 +31,7 @@
 }
 
 .contact-details form>input {
-    background-color: #8EE4AF;
+    background-color: #FFF;
     height: 50px;
     width: 100%;
     border: none;
@@ -40,10 +41,11 @@
 }
 
 .contact-details form>textarea {
-    background-color: #8EE4AF;
+    background-color: #FFF;
     border: none;
     border-radius: 5px;
 
+    border: 1px solid #ffffff82;
 
 }
 
@@ -73,4 +75,9 @@
     font-size: 1.2rem;
     align-items: center;
 
+}
+
+.contact-color{
+    color: #ffb803;
+    font-size: 3rem;
 }

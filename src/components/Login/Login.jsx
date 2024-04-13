@@ -41,6 +41,7 @@ function Login() {
         <h1>Login</h1>
         <InputControl
           label="Email"
+          style={{ height: "40px", borderRadius: "5px", border:"none" }}
           onChange={(event) =>
             setValues((prev) => ({
               ...prev,
@@ -52,7 +53,9 @@ function Login() {
         <InputControl
           label="Password"
           type="password"
-          onChange={(event) =>
+          style={{ height: "40px", borderRadius: "5px", border:"none" }} // Adjust the border radius as needed
+          // Adjust the height as needed
+           onChange={(event) =>
             setValues((prev) => ({
               ...prev,
               pass: event.target.value,

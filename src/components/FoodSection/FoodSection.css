@@ -32,6 +32,15 @@
     height: 70px;
     font-size: 2rem;
 }
-.fd-btn>span{
+
+.food-btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0 1rem;
+
+}
+.food-btn>span{
+    color: #F0A500;
     font-size: 1.5rem;
 }

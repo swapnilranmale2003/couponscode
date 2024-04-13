@@ -1,0 +1,45 @@
+.features {
+    display: flex;
+    justify-content: space-around;
+    color: white;
+    margin-bottom: 3rem;
+}
+
+.feature1 {
+    height: 550px;
+    width: 433px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    background: linear-gradient(to bottom, #BF76E7, #425281);
+    transition: transform 0.3s ease; /* Add transition for hover effect */
+}
+
+.feature1:hover {
+    transform: scale(1.1); /* Increase the size on hover */
+    cursor: pointer;
+}
+
+.feature1 > .fn {
+    font-size: 2rem;
+    margin: 5rem 0;
+}
+
+.feature1 .f-title {
+    height: 300px;
+    width: 300px;
+    display: flex;
+    align-items: center;
+    font-size: 4rem;
+    text-align: center;
+    color: #000;
+}
+
+.f-color {
+    color: #F0A500;
+    margin-bottom: 3rem;
+    font-size: 3rem;
+
+}

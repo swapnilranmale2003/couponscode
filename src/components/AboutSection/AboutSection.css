@@ -1,10 +1,10 @@
 .about-section{
-    height: 100vh;
+    height: 80vh;
 }
 .about-left {
     height: 650px;
     width: 100%;
-    background-color: #05386b;
+    background-color: #000;
     color: #FFF;
     border-radius: 20px;
     padding: 1rem;
@@ -12,6 +12,8 @@
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    border: 1px solid #ebcc028c;
+
    
 }
 .about-right{
@@ -30,12 +32,15 @@
 }
 .about-right .box1 {
     width: 80%;
-    background-color: #379683;
+    background-color: #000;
     color: #FFF;
     /* margin-bottom: 2rem; */
     border-radius: 12px;
     height: 350px;
     padding: 1rem;
+    border: 1px solid #ebcc028c;
+
+
     
    
 }
@@ -45,6 +50,19 @@
 }
 
 .box1-heading{
-    font-size: 1.4rem;
-    font-weight: 600;
+    font-size: 1.3rem;
+    font-weight: normal;
+
+}
+
+.about-color{
+    color: #ffb803;
+    font-size: 3rem;
+}
+
+.box-list>ol>li{
+    color: gray;
+    font-size: 1.2rem;
+   
+    
 }

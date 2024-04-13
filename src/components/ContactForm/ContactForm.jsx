@@ -37,19 +37,19 @@ function ContactForm() {
   return (
     <>
     <div className="contact-section">
-    <h1 className="text-center color">Contact Us</h1>
+    <h1 className="text-center contact-color">Contact Us</h1>
     <div className="container contact-form my-3 ">
       <div className="contact-details">
         <form onSubmit={handleSubmit}>
           <input
             type="text"
-            placeholder="Name"
+            placeholder=" Name"
             onChange={(e) => setName(e.target.value)}
             required
           />
           <input
             type="email"
-            placeholder="Email"
+            placeholder=" Email"
             onChange={(e) => setEmail(e.target.value)}
             required
           />
@@ -58,7 +58,7 @@ function ContactForm() {
             id=""
             cols="30"
             rows="10"
-            placeholder="Message"
+            placeholder=" Message"
             required
             onChange={(e) => {
               setMessage(e.target.value);

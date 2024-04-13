@@ -6,14 +6,16 @@
 .upload-coupons{
     height: 600px;
     width: 500px;
-    background-color: #05386b;
-    border-radius: 10px;
+    background-color: #000;
+    border-radius: 20px;
     display: flex;
     flex-direction: column;
     gap: 1rem;
     padding: 12px;
     align-items: center;
     justify-content: space-between;
+    border: 1px solid #ebcc028c;
+
 }
 .inputs{
     display: flex;
@@ -24,13 +26,13 @@
     
 }
 .upload-coupons .inputs>input{
-    background-color: #8EE4AF;
+    background-color: #FFF;
     border: none;
     height: 50px;
     
 }
 .upload-coupons .inputs>textarea{
-    background-color: #8EE4AF;
+    background-color: #FFF;
     border: none;
     border-radius: 5px;
 
@@ -51,8 +53,8 @@
 }
 
 .color{
-    color: #05386b;
-    font-weight: 600;
+    color: #F0A500;
+    font-weight: normal;
     font-size: 3rem;
 }
 

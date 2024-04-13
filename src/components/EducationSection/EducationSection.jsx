@@ -35,27 +35,23 @@ function EducationSection() {
             </Breadcrumb.Item>
           </Breadcrumb>
         </div>
-        <div className="search-bar">
+        <div className="search-bar mr-3">
           <input
             className="form-control"
+            style={{ height: "50px", borderRadius: "5px", border:"none"}}
             type="text"
             placeholder="Search by title"
             value={searchQuery}
             onChange={handleSearch}
           />
         </div>
-        <div className="ed-btn">
-          <FaPlus size={"5rem"} color="#05386b" onClick={handleClick} />
-          <span>Upload Education Coupons!</span>
-        </div>
-        <div className="ed-h1">
-          <h1>Education</h1>
-          <img src="/edu.png" alt="" />
-        </div>
+      </div>
+      <div className="ed-btn">
+        <FaPlus size={"5rem"} color="#F0A500" onClick={handleClick} />
+        <span>Upload Education Coupons!</span>
       </div>
       <div className="ml-5">
-        <h1>Education</h1>
-
+        <h1>Available Education Coupons</h1>
         <EducationFetch searchQuery={searchQuery} />
       </div>
     </>
