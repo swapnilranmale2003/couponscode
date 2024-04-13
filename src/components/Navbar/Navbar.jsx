@@ -19,7 +19,7 @@ function Navbar() {
     <div className="container-fluid">
       <div className="navbar-header">
         <div className="logo" onClick={handleLogoClick}>
-          <img src="/logo.png" alt="Logo" />
+         <h2><span>E</span>xchango</h2>
         </div>
         <div className="nav-menu">
           <ul>

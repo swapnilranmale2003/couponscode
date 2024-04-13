@@ -78,8 +78,17 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    border-radius: 10px;
 }
-
+a{
+    color: white;
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: none;
+    color: #ebcc02;
+    /* Remove text decoration on hover */
+}
 .hs-right>.cardFP::before {
     content: '';
     position: absolute;

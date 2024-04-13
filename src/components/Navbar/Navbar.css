@@ -4,24 +4,49 @@
     align-items: center;
     height: 100px;
 
+
   }
 
   .nav-menu {
     display: flex;
     align-items: center;
+    padding-right: 3rem;
   }
 
   .logo {
     text-align: center;
+    padding-left: 3rem;
   }
+  .logo > h2 {
+    color: #FFFFFF;
+    font-size: 2.4rem;
+    position: relative; /* Required for absolute positioning of pseudo-element */
+    text-decoration: none; /* Remove underline by default */
+}
 
-  .logo>img {
-    max-width: 200px;
+
+  .logo>h2>span{
+    /* max-width: 200px;
     height: auto;
     padding-top: 1rem;
-    animation: zoomInOut 3s infinite alternate;
+    animation: zoomInOut 3s infinite alternate; */
+    color: #ffb803;
+    font-size: 3rem;
   }
+  .logo > h2::before {
+    content: ''; /* Required for pseudo-element */
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0; /* Initially set width to 0 */
+    height: 2px; /* Set the height of the underline */
+    background-color: #ffb803; /* Set the color of the underline */
+    transition: width 0.5s ease; /* Add transition for width */
+}
 
+  .logo > h2:hover::before {
+    width: 100%; /* Expand width to 100% on hover */
+}
   .nav-menu ul {
     display: flex;
     align-items: center;
@@ -51,6 +76,8 @@
 
   li {
     list-style: none;
+    display: block;
+    padding-left: 32px;
   }
 
   .dropdown select:hover {
