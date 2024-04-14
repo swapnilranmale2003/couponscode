@@ -19,7 +19,7 @@ import Food from "./Pages/Food";
 import FoodUpload from "./components/FoodUpload/FoodUpload";
 import Clothing from "./Pages/Clothing";
 import ClothUpload from "./components/ClothUpload/ClothUpload";
-import Invite from "./components/Invite/Invite";
+
 
 function App() {
   const [userName, setUsername] = useState("");
@@ -55,17 +55,7 @@ function App() {
           />
         </Routes>
       </div>
-      {/* <div
-        className="fixed-bottom right-100 p-3"
-        style={{ zIndex: "6", left: "initial" }}
-      >
-        <a href="https://wa.me/9021190242?text=Hello%20How%20can%20I%20help%20you%20?" target="_blank">
-          <Tippy content={"Need Help? Chat with us"} placement="left">
-            <img src="whasapp.png" alt="" width={"90"} />
-          </Tippy>
-        </a>
-      </div> */}
-      {/* <Invite /> */}
+
     </>
   );
 }

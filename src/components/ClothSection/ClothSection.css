@@ -16,12 +16,12 @@
 
     font-family: "Herr Von Muellerhoff", cursive;
     font-size: 100px;
-    color: #c59d5f;
+    color: #f0a500;
 }
 
 .cloth-btn {
     display: flex;
-    justify-content: start;
+    justify-content: center;
     align-items: center;
     gap: 0 1rem;
 
@@ -35,4 +35,12 @@
 
 .cloth-btn>span {
     font-size: 1.5rem;
+    color: #f0a500;
+}
+
+.ml-5>h1 {
+    color: #f0a500;
+    text-align: center;
+    font-weight: normal;
+    margin-top: 3rem;
 }

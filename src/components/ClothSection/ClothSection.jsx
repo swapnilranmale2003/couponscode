@@ -1,15 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Breadcrumb } from "react-bootstrap";
-
 import { FaPlus } from "react-icons/fa";
 import "./ClothSection.css";
 import ClothFetch from "./ClothFetch";
+
 function ClothSection() {
   const navigate = useNavigate();
+  const [searchQuery, setSearchQuery] = useState("");
 
   const handleClick = () => {
     navigate("/categories/clothings/clothupload");
+  };
+
+  const handleSearch = (e) => {
+    setSearchQuery(e.target.value);
   };
 
   return (
@@ -27,18 +32,24 @@ function ClothSection() {
             Clothes
           </Breadcrumb.Item>
         </Breadcrumb>
-        <div className="cloth-btn">
-          <FaPlus size={"5rem"} color="#05386b" onClick={handleClick} />
-          <span>Upload Clothings Coupons!</span>
+        <div className="search-bar mr-3">
+          <input
+            className="form-control"
+            style={{ height: "50px", borderRadius: "5px", border:"none"}}
+            type="text"
+            placeholder="Search by title"
+            value={searchQuery}
+            onChange={handleSearch}
+          />
         </div>
-        <div className="cloth-h1">
-          <h1>Clothes</h1>
-          <img src="/edu.png" alt="" />
-        </div>
+      </div>
+      <div className="cloth-btn">
+        <FaPlus size={"5rem"} color="#f0a500" onClick={handleClick} />
+        <span>Upload Clothings Coupons!</span>
       </div>
       <div className="ml-5">
         <h1>Clothings</h1>
-        <ClothFetch />
+        <ClothFetch searchQuery={searchQuery} />
       </div>
     </>
   );
