@@ -8,7 +8,7 @@ import "./Invite.css";
 
 function Invite() {
   return (
-    <div>
+    <div className="invite-section">
         <div className="forge">
         <div className="forge-title">Forge</div>
         <div><PiHandshakeThin size={'5rem'}  color="rgb(0, 140, 255)"/></div>

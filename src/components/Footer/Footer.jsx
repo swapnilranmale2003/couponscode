@@ -10,10 +10,15 @@ function Footer() {
           <div className="col-md-6">
             <div className="footer-content">
               <h4>Coupons Code Exchange Platform</h4>
-              <p>
-                Unused coupon codes often expire or are lost, leading to
-                wasted savings opportunities for consumers and businesses.
-              </p>
+              <blockquote class="quote">
+                <p>
+                  "Unlock the full potential of your savings journey by
+                  utilizing every coupon code available. Don't miss out on
+                  valuable discounts that could expire or go unused, leaving
+                  both consumers and businesses at a loss. Seize every
+                  opportunity to save and make the most out of every deal!"
+                </p>
+              </blockquote>
             </div>
           </div>
           <div className="col-md-3">
@@ -22,13 +27,19 @@ function Footer() {
               <div className="footerlist">
                 <ul>
                   <li>
-                    <Link className="orange" to="/">Home</Link>
+                    <Link className="orange" to="/">
+                      Home
+                    </Link>
                   </li>
                   <li>
-                    <Link className="orange" to="/about">About</Link>
+                    <Link className="orange" to="/about">
+                      About
+                    </Link>
                   </li>
                   <li>
-                    <Link className="orange" to="/contact">Contact</Link>
+                    <Link className="orange" to="/contact">
+                      Contact
+                    </Link>
                   </li>
                 </ul>
               </div>
@@ -39,13 +50,19 @@ function Footer() {
             <div className="footerlist">
               <ul>
                 <li>
-                  <Link className="orange" to="/foods">Foods</Link>
+                  <Link className="orange" to="/categories/education">
+                    Education
+                  </Link>
                 </li>
                 <li>
-                  <Link className="orange" to="/clothing">Clothing</Link>
+                  <Link className="orange" to="/categories/food">
+                    Foods
+                  </Link>
                 </li>
                 <li>
-                  <Link className="orange" to="/others">Others</Link>
+                  <Link className="orange" to="/categories/clothings">
+                    Clothing
+                  </Link>
                 </li>
               </ul>
             </div>
