@@ -148,7 +148,7 @@ function EducationUpload() {
               autoComplete="off"
               selected={user.date}
               onChange={(date) => setUser({ ...user, date })}
-              // minDate={new Date()}
+              minDate={Date.now()}
               showMonthDropdown
               showYearDropdown
             />

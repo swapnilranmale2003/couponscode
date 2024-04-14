@@ -155,7 +155,7 @@ function ClothUpload() {
               autoComplete="off"
               selected={user.date}
               onChange={(date) => setUser({ ...user, date })}
-              // minDate={new Date()}
+              minDate={new Date()}
               showMonthDropdown
               showYearDropdown
             />
