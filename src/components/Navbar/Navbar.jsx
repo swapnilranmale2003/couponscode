@@ -2,7 +2,7 @@ import React from "react";
 import "./Navbar.css";
 import { Link, NavLink } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-
+import RocketLaunchIcon from "@mui/icons-material/RocketLaunch";
 function Navbar() {
   const navigate = useNavigate();
 
@@ -19,7 +19,17 @@ function Navbar() {
     <div className="container-fluid">
       <div className="navbar-header">
         <div className="logo" onClick={handleLogoClick}>
-         <h2><span>E</span>xchango</h2>
+          <h2>
+            <span>E</span>xchang
+            <span>
+              <RocketLaunchIcon
+                className="m-auto"
+                style={{ fontSize: "30px" }}
+            
+                
+              />
+            </span>
+          </h2>{" "}
         </div>
         <div className="nav-menu">
           <ul>

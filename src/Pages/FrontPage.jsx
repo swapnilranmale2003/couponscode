@@ -6,6 +6,7 @@ import { useNavigate, Link } from "react-router-dom";
 import FetchData from "../components/FetchData";
 import GetCoupons from "../components/Getcoupons/GetCoupons";
 import "./FrontPage.css";
+import Invite from "../components/Invite/Invite";
 
 function FrontPage() {
   const navigate = useNavigate();
@@ -49,6 +50,7 @@ function FrontPage() {
           </div>
         </div>
       </div>
+      <Invite />
       <Footer />
     </div>
   );

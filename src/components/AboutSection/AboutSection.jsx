@@ -4,7 +4,7 @@ import Features from "../Features/Features";
 function AboutSection() {
   return (
     <>
-    <div>
+      <div>
       <h1 className="text-center about-color">About Us</h1>
       <div className="about-section my-4">
         <div className="container">
