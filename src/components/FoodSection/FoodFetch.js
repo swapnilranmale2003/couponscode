@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
-// import './FoodFetch.css'; // Import the CSS file
 
 function FoodFetch({ searchQuery }) {
     const [records, setRecords] = useState([]);
@@ -56,9 +55,9 @@ function FoodFetch({ searchQuery }) {
                                 <p><strong>Coupon Code:</strong> {hideCouponCode(item.couponcode)}</p>
                                 {item.description && <p><strong>Description:</strong> {item.description}</p>}
                                 {item.date && (
-                                    <p>
-                                        <strong>Date:</strong> {new Date(item.date).toLocaleDateString('en-GB')}
-                                    </p>
+                                    <div className="date-container">
+                                        <p><strong>Date:</strong> {new Date(item.date).toLocaleDateString('en-GB')}</p>
+                                    </div>
                                 )}
                                 <div className="buttons-container">
                                     {item.link && !isCouponExpired(item.date) && (

@@ -1,21 +1,22 @@
+.card-section {
+    height: 100vh;
+}
+
 .cards-container {
     display: flex;
     flex-wrap: wrap;
     gap: 22px;
 }
-.card-section{
-    height: 100vh;
-}
+
 .card {
-      background-color: #000;
+    background-color: #000;
     border: 1px solid #ebcc02e7;
-    height: 250px; /* Fixed height of the card */
+    height: 300px; /* Fixed height of the card */
     border-radius: 8px;
-    width: 300px;
+    width: 350px;
     position: relative; /* Ensure relative positioning for the parent */
     color: #FFF;
     overflow: hidden; /* Hide content that exceeds the dimensions */
-
 }
 
 .card-header {
@@ -31,7 +32,6 @@
     overflow-y: auto; /* Enable vertical scrolling */
     max-height: calc(100% - 80px); /* Set max height to 100% minus header and buttons height */
 }
-
 
 .card-body p {
     margin: 0;
@@ -51,33 +51,24 @@
     justify-content: space-between; /* Center align buttons horizontally */
 }
 
-.link-button, .redeem-button {
+.link-button,
+.redeem-button {
+    width: 100px;
     padding: 5px 10px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
-}
-
-.link-button {
-    background-color: #EDF5E1;
-    color: #05386b;
-}
-
-.redeem-button {
-    background-color: #EDF5E1;
-    color: #05386b;
-}
-
-button {
     display: flex;
-    justify-content: center;
+    justify-content:  center;
     align-items: center; /* Center align content vertically */
     color: #05386b;
-    width: 120px;
     background-color: #EDF5E1;
-    border: none;
-    border-radius: 5px;
-    height: 3rem;
-    font-size: 1.2rem;
-    font-weight: 500;
 }
+
+.card-dec {
+    height: 200px;
+    width: 280px; /* Adjust width to prevent overlapping */
+}
+.date-container {
+    margin-bottom: 1.5rem;
+  }

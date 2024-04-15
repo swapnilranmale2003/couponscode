@@ -37,10 +37,14 @@ function EducationUpload() {
 
   const getData = async (e) => {
     e.preventDefault();
-  
+
     // Input validation for link
     if (!isValidLink(user.link)) {
-      setErrorMessage(<p className="error-message" style={{ color: "white" }}>Invalid link provided</p>);
+      setErrorMessage(
+        <p className="error-message" style={{ color: "white" }}>
+          Invalid link provided
+        </p>
+      );
       return;
     }
 
@@ -80,7 +84,8 @@ function EducationUpload() {
     // Regular expression to validate link format
     const linkRegex = /^(ftp|http|https):\/\/[^ "]+$/;
     // Check if the link is a YouTube video link
-    const youtubeRegex = /^(https?:\/\/)?((www\.)?youtube\.com\/(watch\?v=|embed\/)|youtu\.be\/)/;
+    const youtubeRegex =
+      /^(https?:\/\/)?((www\.)?youtube\.com\/(watch\?v=|embed\/)|youtu\.be\/)/;
     return linkRegex.test(link) && !youtubeRegex.test(link);
   };
   return (

@@ -33,12 +33,13 @@ function EducationFetch({ searchQuery }) {
     };
 
     const isCouponExpired = (couponDate) => {
+        if (!couponDate) return false; // if no date provided, assume not expired
         const currentDate = new Date();
         const couponExpiryDate = new Date(couponDate);
         couponExpiryDate.setHours(12, 0, 0, 0);
         return currentDate > couponExpiryDate;
     };
-
+    
     const filteredRecords = records.filter(record =>
         record.title.toLowerCase().includes(searchQuery.toLowerCase())
     );
@@ -56,9 +57,9 @@ function EducationFetch({ searchQuery }) {
                                 <p><strong>Coupon Code:</strong> {hideCouponCode(item.couponcode)}</p>
                                 {item.description && <p><strong>Description:</strong> {item.description}</p>}
                                 {item.date && (
-                                    <p>
-                                        <strong>Date:</strong> {new Date(item.date).toLocaleDateString('en-GB')}
-                                    </p>
+                                    <div className="date-container">
+                                        <p><strong>Date:</strong> {new Date(item.date).toLocaleDateString('en-GB')}</p>
+                                    </div>
                                 )}
                                 <div className="buttons-container">
                                     {item.link && !isCouponExpired(item.date) && (

@@ -34,7 +34,7 @@ function FetchData() {
                     </div>
                     <div className="card-body">
                         <p><strong>Coupon Code:</strong> {item.couponcode}</p>
-                        {item.description && <p><strong>Description:</strong> {item.description}</p>}
+                        {item.description && <p className='card-dec'><strong>Description:</strong> {item.description}</p>}
                         <div className="buttons-container">
                             {item.link && <button className="link-button"><a href={item.link} target="_blank" rel="noopener noreferrer">Link</a></button>}
                             {item.couponcode && <button className="redeem-button" onClick={() => copyCouponCode(item.couponcode)}>Redeem</button>}
