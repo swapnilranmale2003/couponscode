@@ -69,7 +69,7 @@ function FoodFetch({ searchQuery }) {
                                         <button className="redeem-button" onClick={() => copyCouponCode(item.couponcode)}>Redeem</button>
                                     )}
                                     {item.couponcode && isCouponExpired(item.date) && (
-                                        <button className="redeem-button expired" disabled>Expired!</button>
+                                        <button className="redeem-button expired" disabled>Used!</button>
                                     )}
                                 </div>
                             </div>
