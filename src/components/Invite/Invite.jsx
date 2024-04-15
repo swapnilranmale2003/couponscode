@@ -16,13 +16,13 @@ function Invite() {
       </div>
       <div className="share">
         <div className="email">
-          <Justshare subject="this is sub" msgBody="This is body" />
+          <Justshare subject="https://couponscode.vercel.app/" msgBody="🎉 Exciting News! 🎉" />
         </div>
         <div className="whatsapp">
           <ShareViaWhatsApp />
         </div>
         <div className="sharelink">
-          <CopyToClipboard text="google.com" />
+          <CopyToClipboard text="https://couponscode.vercel.app/" />
         </div>
       </div>
     </div>
@@ -32,9 +32,10 @@ function Invite() {
 function ShareViaWhatsApp({ subject, msgBody }) {
   const handleShare = () => {
     const url = `https://web.whatsapp.com/send?text=${encodeURIComponent(
-      subject
+      subject="https://couponscode.vercel.app/",
+      msgBody="🎉 Exciting News! 🎉"
     )}%0A${encodeURIComponent(msgBody)}`;
-    window.open(url, "sharer", "toolbar=0,status=0,width=1200,height=1200");
+    window.open(url, "http://localhost:3005/frontpage", "toolbar=0,status=0,width=1200,height=1200");
   };
 
   return (

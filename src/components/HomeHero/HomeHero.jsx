@@ -45,14 +45,14 @@ function HomeHero() {
           <div className="appointments">
             <div className="Users">
               <h1 className="your-heading">
-                <CountUp end={10} duration={200} />
+                <CountUp end={10} duration={100} />
               </h1>
               <p className="title-post">Users</p>
             </div>
             <div className="vertical-line"></div> {/* Vertical line */}
             <div className="Coupons">
               <h1 className="your-heading">
-                <CountUp end={50} duration={200} />
+                <CountUp end={50} duration={100} />
               </h1>
               <p className="title-post">Coupons</p>
             </div>
