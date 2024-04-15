@@ -35,7 +35,7 @@ function FrontPage() {
       <Container>
         <Row>
           <Col md={6} className="hs-left">
-            <h1>Welcome</h1>
+            <h1>Deal</h1>
             <img src="/c3.webp" alt="" />
           </Col>
           <Col md={6} className="hs-right">

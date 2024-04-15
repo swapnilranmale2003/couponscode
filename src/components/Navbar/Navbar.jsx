@@ -76,10 +76,10 @@ function Navbar() {
             <li className="dropdown">
               <select className="linkStyle" onChange={handleCategoryChange}>
                 <option value="">Category</option>
-                <option value="education">Education</option>
-                <option value="food">Foods</option>
-                <option value="clothings">Clothings</option>
-                <option value="others">Others</option>
+                <option value="education" className="bg-cat">Education</option>
+                <option value="food" className="bg-cat">Foods</option>
+                <option value="clothings" className="bg-cat">Clothings</option>
+                <option value="others" className="bg-cat">Others</option>
               </select>
             </li>
           </ul>
