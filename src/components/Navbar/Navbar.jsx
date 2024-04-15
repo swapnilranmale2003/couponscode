@@ -3,6 +3,7 @@ import "./Navbar.css";
 import { Link, NavLink } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import RocketLaunchIcon from "@mui/icons-material/RocketLaunch";
+
 function Navbar() {
   const navigate = useNavigate();
 
@@ -15,18 +16,24 @@ function Navbar() {
     navigate(`/categories/${selectedCategory}`);
   };
 
+  const handleLogout = () => {
+    // Clear authentication token or user information from local storage/session storage
+    localStorage.removeItem("token"); // Example: Remove token from local storage
+
+    // Redirect to login page
+    navigate("/login");
+  };
+
   return (
     <div className="container-fluid">
       <div className="navbar-header">
         <div className="logo" onClick={handleLogoClick}>
           <h2>
-            <span>E</span>xchang
+            <span>E</span>xchango
             <span>
               <RocketLaunchIcon
                 className="m-auto"
                 style={{ fontSize: "30px" }}
-            
-                
               />
             </span>
           </h2>{" "}
@@ -62,13 +69,9 @@ function Navbar() {
               </NavLink>
             </li>
             <li>
-              <NavLink
-                className="linkStyle"
-                activeClassName="active"
-                to={"/login"}
-              >
-                Login/SignUp
-              </NavLink>
+              <button className="linkStyle logout-btn" onClick={handleLogout}>
+                Logout
+              </button>
             </li>
             <li className="dropdown">
               <select className="linkStyle" onChange={handleCategoryChange}>

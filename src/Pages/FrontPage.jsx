@@ -7,6 +7,7 @@ import FetchData from "../components/FetchData";
 import GetCoupons from "../components/Getcoupons/GetCoupons";
 import "./FrontPage.css";
 import Invite from "../components/Invite/Invite";
+import { Container, Row, Col } from "react-bootstrap"; // Import Bootstrap components
 
 function FrontPage() {
   const navigate = useNavigate();
@@ -26,30 +27,43 @@ function FrontPage() {
   return (
     <div>
       <Navbar />
-      <div className="homepage-section">
-        <div className="hs-left">
-          <h1>Welcome</h1>
-          <img src="/c3.webp" alt="" />
-        </div>
-        <div className="hs-right">
-          <div className="cardFP">
-            <div className="row">
-              <div className="box1" onClick={handleBox1}>
-                <Link to={'/education'}>Educations</Link>
-              </div>
-              <div className="box1" onClick={handleBox2}>
-                <Link to={'/foods'}>Foods</Link>
-              </div>
+      <Container>
+        <Row>
+          <Col md={6} className="hs-left">
+            <h1>Welcome</h1>
+            <img src="/c3.webp" alt="" />
+          </Col>
+          <Col md={6} className="hs-right">
+            <div className="cardFP">
+              <Row>
+                <Col
+                  className="box1 d-flex justify-content-center align-items-center"
+                  onClick={handleBox1}
+                >
+                  <Link to={"/education"}>Educations</Link>
+                </Col>
+                <Col
+                  className="box1 d-flex justify-content-center align-items-center"
+                  onClick={handleBox2}
+                >
+                  <Link to={"/foods"}>Foods</Link>
+                </Col>
+              </Row>
+              <Row>
+                <Col
+                  className="box1 d-flex justify-content-center align-items-center"
+                  onClick={handleBox3}
+                >
+                  <Link to={"/clothings"}>Clothings</Link>
+                </Col>
+                <Col className="box1 d-flex justify-content-center align-items-center">
+                  Others
+                </Col>
+              </Row>
             </div>
-            <div className="row">
-              <div className="box1" onClick={handleBox3}>
-                <Link to={'/clothings'}>Clothings</Link>
-              </div>
-              <div className="box1">Others</div>
-            </div>
-          </div>
-        </div>
-      </div>
+          </Col>
+        </Row>
+      </Container>
       <Invite />
       <Footer />
     </div>
