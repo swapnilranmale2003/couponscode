@@ -5,9 +5,13 @@ import { FaPlus } from "react-icons/fa6";
 import { useNavigate, Link } from "react-router-dom";
 import FetchData from "../components/FetchData";
 import GetCoupons from "../components/Getcoupons/GetCoupons";
+import { Button } from "@mui/material";
+import ShowChartIcon from "@mui/icons-material/ShowChart";
+import { FaRegHandshake } from "react-icons/fa6";
 import "./FrontPage.css";
 import Invite from "../components/Invite/Invite";
 import { Container, Row, Col } from "react-bootstrap"; // Import Bootstrap components
+import HomeHero from "../components/HomeHero/HomeHero";
 
 function FrontPage() {
   const navigate = useNavigate();
@@ -27,6 +31,7 @@ function FrontPage() {
   return (
     <div>
       <Navbar />
+      <HomeHero />
       <Container>
         <Row>
           <Col md={6} className="hs-left">

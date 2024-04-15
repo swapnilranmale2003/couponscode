@@ -78,9 +78,9 @@
     height: 45px;
     font-size: 1.2rem;
     border-radius: 5px;
-    border: 1px solid #ccc;
-    background-color: #fff;
-    color: #05386b;
+    border: none;
+    background-color: #212121;
+    color: #FFFFFF;
     appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -93,12 +93,12 @@
   }
 
   .dropdown select:hover {
-    border-color: #007bff;
+    border-color: #ffb803;
   }
 
   .dropdown select:focus {
     outline: none;
-    border-color: #007bff;
+    border-color: #ffb803;
   }
 
   .dropdown::after {

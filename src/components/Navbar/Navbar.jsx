@@ -75,7 +75,7 @@ function Navbar() {
             </li>
             <li className="dropdown">
               <select className="linkStyle" onChange={handleCategoryChange}>
-                <option value="">Select Category</option>
+                <option value="">Category</option>
                 <option value="education">Education</option>
                 <option value="food">Foods</option>
                 <option value="clothings">Clothings</option>
