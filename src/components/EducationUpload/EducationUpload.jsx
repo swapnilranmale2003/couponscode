@@ -121,7 +121,7 @@ function EducationUpload() {
               type="text"
               className="form-control"
               name="link"
-              placeholder="Enter the link (optional)"
+              placeholder="Enter the link"
               autoComplete="off"
               value={user.link}
               onChange={data}
