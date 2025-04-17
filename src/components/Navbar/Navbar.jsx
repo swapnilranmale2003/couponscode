@@ -1,7 +1,6 @@
 import React from "react";
 import "./Navbar.css";
-import { Link, NavLink } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import RocketLaunchIcon from "@mui/icons-material/RocketLaunch";
 
 function Navbar() {
@@ -13,77 +12,65 @@ function Navbar() {
 
   const handleCategoryChange = (event) => {
     const selectedCategory = event.target.value;
-    navigate(`/categories/${selectedCategory}`);
+    if (selectedCategory) {
+      navigate(`/categories/${selectedCategory}`);
+    }
   };
 
   const handleLogout = () => {
-    // Clear authentication token or user information from local storage/session storage
-    localStorage.removeItem("token"); // Example: Remove token from local storage
-
-    // Redirect to login page
+    localStorage.removeItem("token");
     navigate("/login");
   };
 
   return (
-    <div className="container-fluid">
-      <div className="navbar-header">
+    <div className="navbar-container">
+      <div className="navbar-content">
         <div className="logo" onClick={handleLogoClick}>
           <h2>
             <span>E</span>xchango
             <span>
               <RocketLaunchIcon
-                className="m-auto"
-                style={{ fontSize: "30px" }}
+                style={{ fontSize: "30px", marginLeft: "5px" }}
               />
             </span>
-          </h2>{" "}
+          </h2>
         </div>
-        <div className="nav-menu">
+        <nav className="nav-menu">
           <ul>
             <li>
-              <NavLink
-                exact
-                className="linkStyle"
-                activeClassName="active"
-                to={"/frontpage"}
-              >
+              <NavLink exact="true" className="linkStyle" to="/frontpage">
                 Home
               </NavLink>
             </li>
             <li>
-              <NavLink
-                className="linkStyle"
-                activeClassName="active"
-                to={"/about"}
-              >
+              <NavLink className="linkStyle" to="/about">
                 About Us
               </NavLink>
             </li>
             <li>
-              <NavLink
-                className="linkStyle"
-                activeClassName="active"
-                to={"/contact"}
-              >
+              <NavLink className="linkStyle" to="/contact">
                 Contact Us
               </NavLink>
             </li>
             <li>
-              <button className="linkStyle logout-btn" onClick={handleLogout}>
+              <select
+                className="dropdown-select"
+                onChange={handleCategoryChange}
+              >
+                <option value="">Category</option>
+                <option value="education">Education</option>
+                <option value="food">Foods</option>
+                <option value="clothings">Clothings</option>
+                <option value="others">Others</option>
+              </select>
+            </li>
+            <li>
+              <button className="logout-btn" onClick={handleLogout}>
                 Logout
               </button>
             </li>
-            <li className="dropdown">
-              <select className="linkStyle" onChange={handleCategoryChange}>
-                <option value="">Category</option>
-                <option value="education" className="bg-cat">Education</option>
-                <option value="food" className="bg-cat">Foods</option>
-                <option value="clothings" className="bg-cat">Clothings</option>
-                <option value="others" className="bg-cat">Others</option>
-              </select>
-            </li>
           </ul>
-        </div>
+        </nav>
       </div>
     </div>
   );

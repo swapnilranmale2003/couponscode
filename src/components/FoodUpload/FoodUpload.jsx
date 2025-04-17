@@ -1,115 +1,131 @@
 import React, { useState } from "react";
-import "./FoodUpload.css";
 import { Link, useNavigate } from "react-router-dom";
 import { Breadcrumb } from "react-bootstrap";
 import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 import DatePicker from "react-datepicker";
+import "react-toastify/dist/ReactToastify.css";
 import "react-datepicker/dist/react-datepicker.css";
-
-// Function to validate link
-const isValidLink = (link) => {
-  // Regular expression to validate link format
-  const linkRegex = /^(ftp|http|https):\/\/[^ "]+$/;
-  // Check if link matches the format
-  if (!linkRegex.test(link)) {
-    return false;
-  }
-
-  // Blacklist of keywords or file extensions
-  const blacklist = ["mp4", "sex", "porn", "xxx", "adult"];
-  // Check if the link contains any blacklisted keyword or file extension
-  if (blacklist.some(keyword => link.toLowerCase().includes(keyword))) {
-    return false;
-  }
-
-  // Check if the link is a YouTube video link
-  const youtubeRegex = /^(https?:\/\/)?((www\.)?youtube\.com\/(watch\?v=|embed\/)|youtu\.be\/)/;
-  if (youtubeRegex.test(link)) {
-    return false;
-  }
-
-  return true;
+import "./FoodUpload.css";
+// Custom Colors and Styles
+const customStyles = {
+  primaryColor: "#F0A500",
+  textColor: "#333",
+  errorText: {
+    color: "#fff",
+    backgroundColor: "#dc3545",
+    padding: "8px",
+    borderRadius: "4px",
+    fontSize: "0.875rem",
+    marginTop: "10px",
+  },
+  input: {
+    marginBottom: "15px",
+    padding: "10px",
+    borderRadius: "6px",
+    border: "1px solid #ddd",
+    fontSize: "0.95rem",
+    width: "100%",
+  },
+  button: {
+    backgroundColor: "#F0A500",
+    border: "none",
+    color: "#fff",
+    padding: "10px 16px",
+    borderRadius: "6px",
+    fontWeight: "500",
+    fontSize: "1rem",
+    width: "100%",
+    cursor: "pointer",
+  },
 };
 
+// Link Validator
+const isValidLink = (link) => {
+  const linkRegex = /^(ftp|http|https):\/\/[^ "]+$/;
+  const blacklist = ["mp4", "sex", "porn", "xxx", "adult"];
+  const youtubeRegex =
+    /^(https?:\/\/)?((www\.)?youtube\.com\/(watch\?v=|embed\/)|youtu\.be\/)/;
 
-function FoodUpload() {
+  return (
+    linkRegex.test(link) &&
+    !blacklist.some((k) => link.toLowerCase().includes(k)) &&
+    !youtubeRegex.test(link)
+  );
+};
+
+const FoodUpload = () => {
   const navigate = useNavigate();
   const [user, setUser] = useState({
     title: "",
     link: "",
     couponcode: "",
     description: "",
-    date: null, // Initialize date as null
+    date: null,
   });
-
   const [errorMessage, setErrorMessage] = useState("");
 
-  const data = (e) => {
+  const handleChange = (e) => {
     const { name, value } = e.target;
-
-    if (name === "title" && value.length > 12) {
-      setUser({ ...user, [name]: value.slice(0, 12) });
-    } else {
-      setUser({ ...user, [name]: value });
-    }
+    setUser((prev) => ({
+      ...prev,
+      [name]: name === "title" ? value.slice(0, 12) : value,
+    }));
   };
 
-  const handleGetFoodCoupons = () => {
-    setTimeout(() => {
-      navigate("/categories/food");
-    }, 1000);
+  const handleDateChange = (date) => {
+    setUser((prev) => ({ ...prev, date }));
   };
 
-  const getData = async (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-
     const { title, link, couponcode, description, date } = user;
 
-    // Check if any required fields are empty
     if (!title || !couponcode || !date) {
       setErrorMessage("Please fill in all required fields");
       return;
     }
 
-    // Check if link is valid
     if (!isValidLink(link)) {
       setErrorMessage("Please enter a valid link");
       return;
     }
 
-    const options = {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        title,
-        link,
-        couponcode,
-        description,
-        date,
-      }),
-    };
-
     try {
       const res = await fetch(
-        "https://uploadfoodcoupons-default-rtdb.firebaseio.com/uploadfoodcoupons.json",
-        options
+        "https://swapnil-5e27c-default-rtdb.firebaseio.com/uploadfoodcoupons.json",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ title, link, couponcode, description, date }),
+        }
       );
 
       if (res.ok) {
-        toast.success("Your coupon is uploaded");
+        toast.success("Coupon uploaded successfully!");
+        setUser({
+          title: "",
+          link: "",
+          couponcode: "",
+          description: "",
+          date: null,
+        });
+        setErrorMessage("");
       } else {
         throw new Error("Failed to upload coupon");
       }
-    } catch (error) {
+    } catch (err) {
       setErrorMessage("Error occurred while uploading coupon");
     }
   };
 
+  const handleRedirect = () => {
+    setTimeout(() => navigate("/categories/food"), 1000);
+  };
+
   return (
-    <div className="upload-section">
+    <div style={{ maxWidth: "600px", margin: "40px auto", padding: "0 20px" }}>
       <Breadcrumb>
         <Breadcrumb.Item linkAs={Link} linkProps={{ to: "/frontpage" }}>
           Home
@@ -119,73 +135,83 @@ function FoodUpload() {
         </Breadcrumb.Item>
         <Breadcrumb.Item active>Upload Coupons</Breadcrumb.Item>
       </Breadcrumb>
-      <h1 className="text-center color">Upload Coupons</h1>
 
-      <div className="container my-5 upload-coupons">
-        <form>
-          <div className="inputs">
-            <input
-              type="text"
-              className="form-control"
-              name="title"
-              placeholder="Enter the Title"
-              required
-              autoComplete="off"
-              value={user.title}
-              onChange={data}
-            />
-            <input
-              type="text"
-              className="form-control"
-              name="link"
-              placeholder="Enter the link "
-              autoComplete="off"
-              value={user.link}
-              onChange={data}
-            />
-            <input
-              type="text"
-              className="form-control"
-              name="couponcode"
-              placeholder="Enter the coupon code"
-              required
-              autoComplete="off"
-              value={user.couponcode}
-              onChange={data}
-            />
-            <textarea
-              name="description"
-              placeholder="Enter your description"
-              cols="30"
-              rows="5"
-              autoComplete="off"
-              value={user.description}
-              onChange={data}
-            ></textarea>
-            <DatePicker
-              className="form-control"
-              selected={user.date}
-              onChange={(date) => setUser({ ...user, date })}
-              placeholderText="Enter the date"
-              autoComplete="off"
-              required
-              minDate={Date.now()}
-            />
-          </div>
-          {errorMessage && <p className="error-message">{errorMessage}</p>}
-          <div className="upload-btn">
-            <button type="submit" onClick={getData}>
-              Submit
-            </button>
-          </div>
-        </form>
-      </div>
-      <div className="getcoupons">
-        <button onClick={handleGetFoodCoupons}>Get Food Coupons</button>
-      </div>
+      <h2
+        style={{
+          color: customStyles.primaryColor,
+          textAlign: "center",
+          marginBottom: "30px",
+        }}
+      >
+        Upload Food Coupon
+      </h2>
+
+      <form onSubmit={handleSubmit}>
+        <input
+          type="text"
+          name="title"
+          placeholder="Enter the title (max 12 chars)"
+          value={user.title}
+          onChange={handleChange}
+          style={customStyles.input}
+          required
+        />
+        <input
+          type="text"
+          name="link"
+          placeholder="Enter the link"
+          value={user.link}
+          onChange={handleChange}
+          style={customStyles.input}
+        />
+        <input
+          type="text"
+          name="couponcode"
+          placeholder="Enter the coupon code"
+          value={user.couponcode}
+          onChange={handleChange}
+          style={customStyles.input}
+          required
+        />
+        <textarea
+          name="description"
+          placeholder="Enter a description (optional)"
+          rows="4"
+          value={user.description}
+          onChange={handleChange}
+          style={{ ...customStyles.input, resize: "none" }}
+        />
+        <DatePicker
+          selected={user.date}
+          onChange={handleDateChange}
+          placeholderText="Select expiry date"
+          className="form-control"
+          minDate={new Date()}
+          required
+          style={customStyles.input}
+        />
+
+        {errorMessage && <p style={customStyles.errorText}>{errorMessage}</p>}
+
+        <button type="submit" style={customStyles.button}>
+          Submit
+        </button>
+      </form>
+
+      <button
+        style={{
+          ...customStyles.button,
+          marginTop: "20px",
+          backgroundColor: "#444",
+        }}
+        onClick={handleRedirect}
+      >
+        View Food Coupons
+      </button>
+
       <ToastContainer />
     </div>
   );
-}
+};
 
 export default FoodUpload;

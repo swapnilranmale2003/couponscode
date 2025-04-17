@@ -1,56 +1,148 @@
 @import url("https://fonts.googleapis.com/css2?family=Herr+Von+Muellerhoff&display=swap");
 
-.education-hero {
-    display: flex;
-    justify-content: space-between;
+/* Main Container */
+.education-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
 }
 
-.ed-h1>h1 {
-    margin-right: 20px;
-    position: absolute;
-    top: 18%;
-    right: 3%;
-    transform: translateX(-50%);
-    font-family: "Herr Von Muellerhoff", cursive;
-    font-size: 100px;
-    color: #f0a500;
+/* Header Section */
+.education-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  gap: 1rem;
 }
 
-
-.ed-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0 1rem;
+/* Breadcrumb Styling */
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
 }
 
-.ed-btn>button {
-    width: 500px;
-    height: 70px;
-    font-size: 2rem;
+.breadcrumb-item {
+  color: #333;
+  text-decoration: none;
 }
 
-.ed-btn>span {
-    color: #f0a500;
-    font-size: 1.5rem;
+.breadcrumb-item.active {
+  color: #f0a500;
+  font-weight: 500;
 }
 
-.ml-5>h1 {
-    color: #f0a500;
-    text-align: center;
-    font-weight: normal;
-    margin-top: 3rem;
+.breadcrumb-separator {
+  margin: 0 0.5rem;
+  color: #666;
 }
 
+/* Search Container */
+.search-container {
+  flex-grow: 1;
+  max-width: 400px;
+}
+
+.search-input-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.search-icon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #888;
+}
+
+.search-input {
+  width: 100%;
+  height: 50px;
+  padding: 0.5rem 1rem 0.5rem 2.5rem;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: #f0a500;
+  box-shadow: 0 2px 8px rgba(240, 165, 0, 0.2);
+}
+
+/* Upload Button Section */
+.upload-section {
+  display: flex;
+  justify-content: center;
+  margin: 2rem 0;
+}
+
+.upload-button {
+  display: flex;
+  align-items: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 1rem;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.upload-button:hover {
+  background-color: rgba(240, 165, 0, 0.1);
+}
+
+.upload-icon {
+  font-size: 3rem;
+  color: #f0a500;
+  margin-right: 1rem;
+}
+
+.upload-text {
+  color: #f0a500;
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+/* Content Section */
+.education-content {
+  margin-top: 2rem;
+}
+
+.education-title {
+  color: #f0a500;
+  text-align: center;
+  font-weight: normal;
+  margin-bottom: 2rem;
+  font-size: 2.5rem;
+}
+
+/* Responsive Adjustments */
 @media screen and (max-width: 768px) {
-  .ed-h1>h1 {
-    font-size: 4.5rem;
-    top: 12%;
+  .education-header {
+    flex-direction: column;
+    align-items: flex-start;
   }
 
-  .ed-btn>button {
+  .search-container {
     width: 100%;
-    max-width: 300px;
-    font-size: 1.5rem;
+    max-width: 100%;
+  }
+
+  .upload-icon {
+    font-size: 2rem;
+  }
+
+  .upload-text {
+    font-size: 1.2rem;
+  }
+
+  .education-title {
+    font-size: 2rem;
   }
 }

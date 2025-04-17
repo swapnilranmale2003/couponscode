@@ -1,69 +1,63 @@
 import React from "react";
 import { Button } from "@mui/material";
 import { useNavigate } from "react-router-dom";
-import ShowChartIcon from "@mui/icons-material/ShowChart";
 import { FaRegHandshake } from "react-icons/fa6";
 import { MdOutlineRedeem } from "react-icons/md";
 import CountUp from "react-countup";
-
 import "./HomeHero.css";
+
 function HomeHero() {
   const navigate = useNavigate();
 
-  const handleContactClick = () => {
-    navigate("/contact");
-  };
-  const handleAboutClick = () => {
-    navigate("/about");
-  };
   return (
     <div className="homepage">
-      <div className="col-md-6 homepage-content">
-        <div className="homepage-title">
-          <h1 style={{ textAlign: "center" }}>
-            Trade Trove{" "}
-            <FaRegHandshake
-              size={"5rem"}
-              color="#F0A500"
-              style={{ verticalAlign: "middle" }}
-            />{" "}
-            Uncover hidden deals! <br />
-            <span style={{ display: "inline-block", verticalAlign: "middle" }}>
-              Share Care: Amplify your savings flair!
-            </span>{" "}
-            <ShowChartIcon
-              fontSize="inherit"
-              style={{ color: "green", verticalAlign: "middle" }}
-            />{" "}
-            <br />
-            Redeem Dream & your Budget beams!
-          </h1>
+      <div className="homepage-content">
+        <h1 className="main-title">
+          Trade Trove <FaRegHandshake color="#F0A500" />
+        </h1>
+        <p className="tagline">
+          Uncover hidden deals! Share Care: Amplify your savings flair! <br />
+          <MdOutlineRedeem color="#F0A500" /> Redeem Dream & your Budget beams!
+        </p>
+
+        <div className="cta-buttons">
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={() => navigate("/contact")}
+          >
+            Get Started
+          </Button>
+          <Button
+            variant="outlined"
+            color="warning"
+            onClick={() => navigate("/about")}
+          >
+            Learn More
+          </Button>
         </div>
-        
-        <div className="homepage-btn">
-        <h3 className="reached">We Are Reached</h3>
-          <div className="appointments">
-            <div className="Users">
-              <h1 className="your-heading">
-                <CountUp end={10} duration={100} />
-              </h1>
-              <p className="title-post">Users</p>
-            </div>
-            <div className="vertical-line"></div> {/* Vertical line */}
-            <div className="Coupons">
-              <h1 className="your-heading">
-                <CountUp end={50} duration={100} />
-              </h1>
-              <p className="title-post">Coupons</p>
-            </div>
+
+        <div className="stats">
+          <div className="stat-box">
+            <h2>
+              <CountUp end={10} duration={3} />
+            </h2>
+            <p>Users</p>
+          </div>
+          <div className="stat-box">
+            <h2>
+              <CountUp end={50} duration={3} />
+            </h2>
+            <p>Coupons</p>
           </div>
         </div>
       </div>
-      <div className="col-md-6 ">
+
+      <div className="homepage-image-wrapper">
         <img
           className="homepage-image"
-          src="https://images.pexels.com/photos/4342493/pexels-photo-4342493.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-          alt=""
+          src="https://images.pexels.com/photos/4342493/pexels-photo-4342493.jpeg"
+          alt="hero-banner"
         />
       </div>
     </div>

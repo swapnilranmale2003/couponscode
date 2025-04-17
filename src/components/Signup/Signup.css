@@ -1,60 +1,78 @@
 .signup-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-  }
-  
-  .signup-form {
-    width: 100%;
-    max-width: 400px;
-    padding: 40px;
-    border-radius: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    background-color: #000;
-    color: #fff;
-    border: 1px solid #ebcc028c;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(to right, #1f1f1f, #000);
+  padding: 20px;
+}
 
-  }
-  
-  .signup-form>h1 {
-    text-align: center;
-    margin-bottom: 30px;
-    color: #F0A500;
-  }
-  
-  .submit-button {
-    width: 100%;
-    margin-top: 30px;
-    padding: 15px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .submit-button:disabled {
-    background-color: #ccc;
-    cursor: not-allowed;
-  }
-  
-  .login-link {
-    display: block;
-    text-align: center;
-    color: #F0A500;
-    text-decoration: none;
-    margin-top: 20px;
-    font-size: 1.5rem;
-  }
-  
-  .login-link:hover {
-    text-decoration: underline;
-  }
-  
-  b {
-    display: block;
-    color: red;
-    margin-top: 20px;
-  }
-  
+.signup-form {
+  width: 100%;
+  max-width: 400px;
+  padding: 40px;
+  border-radius: 20px;
+  background-color: #121212;
+  color: #fff;
+  border: 1px solid #f0a50080;
+  box-shadow: 0 0 20px rgba(240, 165, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.signup-form:hover {
+  box-shadow: 0 0 30px rgba(240, 165, 0, 0.4);
+}
+
+.signup-form > h1 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #f0a500;
+  font-size: 2.2rem;
+  font-weight: bold;
+}
+
+.submit-button {
+  width: 100%;
+  margin-top: 30px;
+  padding: 14px;
+  background-color: #f0a500;
+  color: #000;
+  font-weight: bold;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.submit-button:hover {
+  background-color: #ffbb33;
+}
+
+.submit-button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.login-link {
+  display: block;
+  text-align: center;
+  color: #f0a500;
+  text-decoration: none;
+  margin-top: 20px;
+  font-size: 1.2rem;
+  transition: color 0.3s ease;
+}
+
+.login-link:hover {
+  color: #ffbb33;
+  text-decoration: underline;
+}
+
+b {
+  display: block;
+  color: #ff4d4d;
+  margin-top: 20px;
+  text-align: center;
+  font-size: 0.9rem;
+}

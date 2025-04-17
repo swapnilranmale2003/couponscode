@@ -7,6 +7,37 @@ import "react-toastify/dist/ReactToastify.css";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
+const customStyles = {
+  primaryColor: "#F0A500",
+  textColor: "#333",
+  errorText: {
+    color: "#fff",
+    backgroundColor: "#dc3545",
+    padding: "8px",
+    borderRadius: "4px",
+    fontSize: "0.875rem",
+    marginTop: "10px",
+  },
+  input: {
+    marginBottom: "15px",
+    padding: "10px",
+    borderRadius: "6px",
+    border: "1px solid #ddd",
+    fontSize: "0.95rem",
+  },
+  button: {
+    backgroundColor: "#F0A500",
+    border: "none",
+    color: "#fff",
+    padding: "10px 16px",
+    borderRadius: "6px",
+    fontWeight: "500",
+    fontSize: "1rem",
+    width: "100%",
+    cursor: "pointer",
+  },
+};
+
 function EducationUpload() {
   const navigate = useNavigate();
   const [user, setUser] = useState({
@@ -14,14 +45,12 @@ function EducationUpload() {
     link: "",
     couponcode: "",
     description: "",
-    date: "", // Added date field
+    date: "",
   });
-
   const [errorMessage, setErrorMessage] = useState("");
 
   const data = (e) => {
     const { name, value } = e.target;
-
     if (name === "title" && value.length > 12) {
       setUser({ ...user, [name]: value.slice(0, 12) });
     } else {
@@ -35,32 +64,28 @@ function EducationUpload() {
     }, 1000);
   };
 
+  const isValidLink = (link) => {
+    const linkRegex = /^(ftp|http|https):\/\/[^ "]+$/;
+    const youtubeRegex =
+      /^(https?:\/\/)?((www\.)?youtube\.com\/(watch\?v=|embed\/)|youtu\.be\/)/;
+    return linkRegex.test(link) && !youtubeRegex.test(link);
+  };
+
   const getData = async (e) => {
     e.preventDefault();
 
-    // Input validation for link
     if (!isValidLink(user.link)) {
-      setErrorMessage(
-        <p className="error-message" style={{ color: "white" }}>
-          Invalid link provided
-        </p>
-      );
+      setErrorMessage("Invalid link provided");
       return;
     }
 
-    const { title, link, couponcode, description, date } = user; // Added date
+    const { title, link, couponcode, description, date } = user;
     const options = {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({
-        title,
-        link,
-        couponcode,
-        description,
-        date, // Include date in the data sent to the database
-      }),
+      body: JSON.stringify({ title, link, couponcode, description, date }),
     };
 
     try {
@@ -68,9 +93,16 @@ function EducationUpload() {
         "https://uploadeducationcoupons-default-rtdb.firebaseio.com/uploadeducationcoupons.json",
         options
       );
-
       if (res.ok) {
         toast.success("Your coupon is uploaded");
+        setUser({
+          title: "",
+          link: "",
+          couponcode: "",
+          description: "",
+          date: "",
+        });
+        setErrorMessage("");
       } else {
         throw new Error("Failed to upload coupon");
       }
@@ -79,96 +111,118 @@ function EducationUpload() {
     }
   };
 
-  // Function to validate link
-  const isValidLink = (link) => {
-    // Regular expression to validate link format
-    const linkRegex = /^(ftp|http|https):\/\/[^ "]+$/;
-    // Check if the link is a YouTube video link
-    const youtubeRegex =
-      /^(https?:\/\/)?((www\.)?youtube\.com\/(watch\?v=|embed\/)|youtu\.be\/)/;
-    return linkRegex.test(link) && !youtubeRegex.test(link);
-  };
   return (
-    <div className="upload-section">
+    <div className="upload-section container py-4">
       <Breadcrumb>
-        <Breadcrumb.Item linkAs={Link} linkProps={{ to: "/frontpage" }}>
+        <Breadcrumb.Item
+          linkAs={Link}
+          linkProps={{ to: "/frontpage" }}
+          style={{ color: "black" }}
+        >
           Home
         </Breadcrumb.Item>
         <Breadcrumb.Item
           linkAs={Link}
           linkProps={{ to: "/categories/education" }}
+          style={{ color: "black" }}
         >
           Education
         </Breadcrumb.Item>
-        <Breadcrumb.Item active>Upload Coupons</Breadcrumb.Item>
+        <Breadcrumb.Item active style={{ color: "black" }}>
+          Upload Coupons
+        </Breadcrumb.Item>
       </Breadcrumb>
-      <h1 className="text-center color">Upload Coupons</h1>
 
-      <div className="container my-5 upload-coupons">
-        <form>
-          <div className="inputs">
-            <input
-              type="text"
-              className="form-control"
-              name="title"
-              placeholder="Enter the Title"
-              required
-              autoComplete="off"
-              value={user.title}
-              onChange={data}
-            />
-            <input
-              type="text"
-              className="form-control"
-              name="link"
-              placeholder="Enter the link"
-              autoComplete="off"
-              value={user.link}
-              onChange={data}
-            />
-            <input
-              type="text"
-              className="form-control"
-              name="couponcode"
-              placeholder="Enter the coupon code"
-              required
-              autoComplete="off"
-              value={user.couponcode}
-              onChange={data}
-            />
-            <textarea
-              name="description"
-              placeholder="Enter your description"
-              cols="30"
-              rows="5"
-              autoComplete="off"
-              value={user.description}
-              onChange={data}
-            ></textarea>
-            <DatePicker
-              className="form-control"
-              name="date"
-              placeholderText="Enter the date"
-              required
-              autoComplete="off"
-              selected={user.date}
-              onChange={(date) => setUser({ ...user, date })}
-              minDate={Date.now()}
-              showMonthDropdown
-              showYearDropdown
-            />
-          </div>
-          {errorMessage && <p className="error-message">{errorMessage}</p>}{" "}
-          <div className="upload-btn">
-            <button type="submit" onClick={getData}>
-              Submit
-            </button>
-          </div>
-        </form>
+      <h2
+        className="text-center mb-4"
+        style={{ color: customStyles.primaryColor }}
+      >
+        Upload Education Coupons
+      </h2>
+
+      <form
+        onSubmit={getData}
+        className="mx-auto"
+        style={{ maxWidth: "600px" }}
+      >
+        <input
+          type="text"
+          className="form-control"
+          name="title"
+          placeholder="Title"
+          required
+          autoComplete="off"
+          value={user.title}
+          onChange={data}
+          style={customStyles.input}
+        />
+        <input
+          type="text"
+          className="form-control"
+          name="link"
+          placeholder="Coupon Link"
+          autoComplete="off"
+          value={user.link}
+          onChange={data}
+          style={customStyles.input}
+        />
+        <input
+          type="text"
+          className="form-control"
+          name="couponcode"
+          placeholder="Coupon Code"
+          required
+          autoComplete="off"
+          value={user.couponcode}
+          onChange={data}
+          style={customStyles.input}
+        />
+        <textarea
+          name="description"
+          placeholder="Description"
+          rows="4"
+          autoComplete="off"
+          value={user.description}
+          onChange={data}
+          className="form-control"
+          style={{ ...customStyles.input, resize: "vertical" }}
+        ></textarea>
+        <DatePicker
+          className="form-control"
+          placeholderText="Select Expiry Date"
+          required
+          selected={user.date}
+          onChange={(date) => setUser({ ...user, date })}
+          minDate={new Date()}
+          showMonthDropdown
+          showYearDropdown
+          style={customStyles.input}
+        />
+
+        {errorMessage && <p style={customStyles.errorText}>{errorMessage}</p>}
+
+        <div className="mt-4">
+          <button type="submit" style={customStyles.button}>
+            Submit Coupon
+          </button>
+        </div>
+      </form>
+
+      <div className="text-center mt-4">
+        <button
+          onClick={handleGetECoupons}
+          style={{
+            ...customStyles.button,
+            backgroundColor: "#333",
+            marginTop: "10px",
+            width: "auto",
+            padding: "8px 20px",
+          }}
+        >
+          View Coupons
+        </button>
       </div>
-      <div className="getcoupons">
-        <button onClick={handleGetECoupons}>Get Education Coupons</button>
-      </div>
+
       <ToastContainer />
     </div>
   );

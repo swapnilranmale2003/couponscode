@@ -1,10 +1,17 @@
-
 .breadcrumb {
-    background-color: transparent;
-  }
-  
-  
-  .breadcrumb .active {
-    color: #05386b;
-  }
-  
+  background-color: transparent;
+}
+
+.breadcrumb .active {
+  color: #05386b;
+}
+input {
+  background-color: #fff;
+}
+input:focus {
+  background-color: #fff;
+  color: black;
+}
+button {
+  margin-top: 1rem;
+}

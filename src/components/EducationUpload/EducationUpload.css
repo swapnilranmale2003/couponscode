@@ -1,10 +1,7 @@
-
-.breadcrumb {
+/* .breadcrumb {
     background-color: transparent;
-  }
-  
-  
-  .breadcrumb .active {
-    color: #05386b;
-  }
-  
+  } */
+
+.breadcrumb .active {
+  color: #05386b;
+}
