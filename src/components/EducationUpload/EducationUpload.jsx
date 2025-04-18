@@ -90,7 +90,7 @@ function EducationUpload() {
 
     try {
       const res = await fetch(
-        "https://uploadeducationcoupons-default-rtdb.firebaseio.com/uploadeducationcoupons.json",
+        "https://swapnil-5e27c-default-rtdb.firebaseio.com/uploadeducationcoupons.json",
         options
       );
       if (res.ok) {

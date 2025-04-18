@@ -54,7 +54,7 @@ function EducationFetch({ searchQuery }) {
   useEffect(() => {
     setIsLoading(true);
     fetch(
-      "https://uploadeducationcoupons-default-rtdb.firebaseio.com/uploadeducationcoupons.json"
+      "https://swapnil-5e27c-default-rtdb.firebaseio.com/uploadeducationcoupons.json"
     )
       .then((response) => {
         if (!response.ok) {

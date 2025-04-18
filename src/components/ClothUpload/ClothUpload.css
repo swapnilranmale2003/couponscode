@@ -1,14 +1,4 @@
-
-.breadcrumb {
-    background-color: transparent;
-    
-  }
-  
-  
-  .breadcrumb .active {
-    color: #F0A500;
-  }
-  .white-text {
-    color: red;
-  }
-  
+.btns {
+  display: flex;
+  justify-content: space-between;
+}

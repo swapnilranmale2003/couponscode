@@ -1,12 +1,19 @@
 import React, { useState } from "react";
-import "./ClothUpload.css";
 import { Link, useNavigate } from "react-router-dom";
-import { Breadcrumb } from "react-bootstrap";
+import {
+  Container,
+  Row,
+  Col,
+  Form,
+  Button,
+  Breadcrumb,
+  Alert,
+} from "react-bootstrap";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-
+import "./ClothUpload.css";
 function ClothUpload() {
   const navigate = useNavigate();
   const [user, setUser] = useState({
@@ -18,8 +25,9 @@ function ClothUpload() {
   });
 
   const [errorMessage, setErrorMessage] = useState("");
+  const [validated, setValidated] = useState(false);
 
-  const data = (e) => {
+  const handleChange = (e) => {
     const { name, value } = e.target;
 
     if (name === "title" && value.length > 12) {
@@ -30,15 +38,11 @@ function ClothUpload() {
   };
 
   const handleGetECoupons = () => {
-    setTimeout(() => {
-      navigate("/categories/clothings");
-    }, 1000);
+    navigate("/categories/clothings");
   };
 
   const isValidLink = (link) => {
-    // Regular expression to validate link format
     const linkRegex = /^(ftp|http|https):\/\/[^ "]+$/;
-    // Check if the link is a video file or contains inappropriate content
     const videoRegex = /\.(mp4|avi|mov|wmv)$/i;
     const inappropriateRegex = /(sex|porn|xxx)/i;
     return (
@@ -48,15 +52,20 @@ function ClothUpload() {
     );
   };
 
-  const getData = async (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    const form = e.currentTarget;
+
+    if (form.checkValidity() === false) {
+      e.stopPropagation();
+      setValidated(true);
+      return;
+    }
 
     const { title, link, couponcode, description, date } = user;
 
     if (!isValidLink(link)) {
-      setErrorMessage(
-        <p className="error-message white-text">Invalid link provided</p>
-      );
+      setErrorMessage("Invalid link provided");
       return;
     }
 
@@ -76,12 +85,21 @@ function ClothUpload() {
 
     try {
       const res = await fetch(
-        "https://uploadclothingcoupons-default-rtdb.firebaseio.com/uploadclothingcoupons.json",
+        "https://swapnil-5e27c-default-rtdb.firebaseio.com/uploadclothcoupon.json",
         options
       );
 
       if (res.ok) {
         toast.success("Your coupon is uploaded");
+        // Reset form after successful submission
+        setUser({
+          title: "",
+          link: "",
+          couponcode: "",
+          description: "",
+          date: new Date(),
+        });
+        setValidated(false);
       } else {
         throw new Error("Failed to upload coupon");
       }
@@ -91,8 +109,8 @@ function ClothUpload() {
   };
 
   return (
-    <div className="upload-section">
-      <Breadcrumb>
+    <Container className="py-4">
+      <Breadcrumb className="mb-3">
         <Breadcrumb.Item linkAs={Link} linkProps={{ to: "/frontpage" }}>
           Home
         </Breadcrumb.Item>
@@ -104,75 +122,102 @@ function ClothUpload() {
         </Breadcrumb.Item>
         <Breadcrumb.Item active>Upload Coupons</Breadcrumb.Item>
       </Breadcrumb>
-      <h1 className="text-center color">Upload Coupons</h1>
 
-      <div className="container my-5 upload-coupons">
-        <form>
-          <div className="inputs">
-            <input
-              type="text"
-              className="form-control"
-              name="title"
-              placeholder="Enter the Title"
-              required
-              autoComplete="off"
-              value={user.title}
-              onChange={data}
-            />
-            <input
-              type="text"
-              className="form-control"
-              name="link"
-              placeholder="Enter the link "
-              autoComplete="off"
-              value={user.link}
-              onChange={data}
-            />
-            <input
-              type="text"
-              className="form-control"
-              name="couponcode"
-              placeholder="Enter the coupon code"
-              required
-              autoComplete="off"
-              value={user.couponcode}
-              onChange={data}
-            />
-            <textarea
-              name="description"
-              placeholder="Enter your description"
-              cols="30"
-              rows="5"
-              autoComplete="off"
-              value={user.description}
-              onChange={data}
-            ></textarea>
-            <DatePicker
-              className="form-control"
-              name="date"
-              placeholderText="Enter the date"
-              required
-              autoComplete="off"
-              selected={user.date}
-              onChange={(date) => setUser({ ...user, date })}
-              minDate={new Date()}
-              showMonthDropdown
-              showYearDropdown
-            />
-          </div>
-          {errorMessage && <p className="error-message">{errorMessage}</p>}{" "}
-          <div className="upload-btn">
-            <button type="submit" onClick={getData}>
-              Submit
-            </button>
-          </div>
-        </form>
-      </div>
-      <div className="getcoupons">
-        <button onClick={handleGetECoupons}>Get Clothings Coupons</button>
-      </div>
-      <ToastContainer />
-    </div>
+      <h2 className="text-center mb-4">Upload Clothing Coupon</h2>
+
+      <Row className="justify-content-center">
+        <Col md={8} lg={6}>
+          {errorMessage && (
+            <Alert variant="danger" className="mb-3">
+              {errorMessage}
+            </Alert>
+          )}
+
+          <Form
+            noValidate
+            validated={validated}
+            onSubmit={handleSubmit}
+            className="border rounded p-4 bg-light"
+          >
+            <Form.Group className="mb-3">
+              <Form.Label>Title</Form.Label>
+              <Form.Control
+                type="text"
+                name="title"
+                placeholder="Enter coupon title"
+                required
+                maxLength={12}
+                value={user.title}
+                onChange={handleChange}
+              />
+              <Form.Text className="text-muted">
+                Maximum 12 characters
+              </Form.Text>
+            </Form.Group>
+
+            <Form.Group className="mb-3">
+              <Form.Label>Link</Form.Label>
+              <Form.Control
+                type="url"
+                name="link"
+                placeholder="https://example.com"
+                required
+                value={user.link}
+                onChange={handleChange}
+              />
+            </Form.Group>
+
+            <Form.Group className="mb-3">
+              <Form.Label>Coupon Code</Form.Label>
+              <Form.Control
+                type="text"
+                name="couponcode"
+                placeholder="SAVE20"
+                required
+                value={user.couponcode}
+                onChange={handleChange}
+              />
+            </Form.Group>
+
+            <Form.Group className="mb-3">
+              <Form.Label>Description</Form.Label>
+              <Form.Control
+                as="textarea"
+                name="description"
+                rows={3}
+                placeholder="Enter coupon details"
+                value={user.description}
+                onChange={handleChange}
+              />
+            </Form.Group>
+
+            <Form.Group className="mb-3">
+              <Form.Label>Expiration Date</Form.Label>
+              <DatePicker
+                className="form-control"
+                selected={user.date}
+                onChange={(date) => setUser({ ...user, date })}
+                minDate={new Date()}
+                dateFormat="MM/dd/yyyy"
+                placeholderText="Select expiration date"
+                required
+              />
+            </Form.Group>
+
+            <div className="btns">
+              <Button variant="outline-secondary" onClick={handleGetECoupons}>
+                View All Clothing Coupons
+              </Button>
+              <Button variant="primary" type="submit">
+                Submit Coupon
+              </Button>
+            </div>
+          </Form>
+        </Col>
+      </Row>
+
+      <ToastContainer position="bottom-right" />
+    </Container>
   );
 }
 
